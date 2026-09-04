@@ -1,5 +1,5 @@
 ---
-title: "TUTORIAL: Automated Spell-Teaching Sequence"
+title: "TUTORIAL: Automated Spell-Teaching Sequence for 30 Players"
 sidebarTitle: "Tutorial"
 description: "The TUTORIAL state assigns each of the 30 players a map slot and runs a scripted onboarding sequence that teaches all four Crystal Legacy spells."
 ---
@@ -40,8 +40,11 @@ Players who join after the tutorial has already started are automatically resync
 Use these commands to monitor and manage the tutorial while it runs. For the complete command reference, see [Tutorial Admin Commands](/admin/tutorial-commands).
 
 - `/master tutorial info` — displays the current step number, total step count, and step status for all active players.
+- `/master tutorial status` — returns the current overall tutorial status.
 - `/master tutorial skip` — advances the tutorial to the next step immediately. Use this if a spell-unlock minigame becomes stuck and cannot be completed normally.
 - `/master tutorial spell pass` — marks the current spell-unlock minigame as passed for all players at once. Use this as an alternative to `skip` when you want to unblock everyone without skipping any content.
+- `/master tutorial spell unlock ;spell;` — unlocks a specific spell for all players immediately. Replace `;spell;` with the spell name.
+- `/master tutorial varita` — manually gives the wand to all players. Use this if the automatic wand distribution did not fire for one or more players.
 - `/master tutorial resync player ;name;` — manually resyncs a specific player. Replace `;name;` with the player's username.
 - `/master tutorial stop` — stops the tutorial entirely.
 

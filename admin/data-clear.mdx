@@ -1,7 +1,7 @@
 ---
 title: "/master data clear: Reset Event State and Client Data"
 sidebarTitle: "/master data clear"
-description: "Use /master data clear to wipe in-memory event data and reset client state. Subcommands target specific systems: bracket, parkour, pvp, timer, tutorial, and more."
+description: "Use /master data clear to wipe in-memory event data and reset client state. Targets specific systems: bracket, parkour, pvp, timer, tutorial, and more."
 ---
 
 The `/master data clear` command is your primary recovery tool when something goes wrong mid-event or when you need to reset a specific system before re-running a phase. It clears in-memory event data on the server and sends a reset packet to all connected clients, returning their UI and state to defaults. This command does **not** touch any persistent database records — everything it affects lives only in memory for the duration of the current session.

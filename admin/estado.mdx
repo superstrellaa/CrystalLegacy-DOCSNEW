@@ -1,5 +1,5 @@
 ---
-title: "/master estado: Control the Active Event Phase"
+title: "/master estado: Transition Crystal Legacy Event State"
 sidebarTitle: "/master estado"
 description: "Use /master estado to transition Crystal Legacy between its five global states: DEV, WAITING_PLAYERS, TUTORIAL, MINI_EVENTS, and PVP."
 ---
@@ -13,19 +13,19 @@ The `/master estado` command is the primary lever for advancing Crystal Legacy t
 ## Syntax
 
 ```bash
-/master estado <state>
+/master estado ;state;
 ```
 
-Replace `<state>` with one of the five valid state identifiers listed in the table below.
+Replace `;state;` with one of the five valid state identifiers listed in the table below.
 
 ## Valid States
 
 | State | Description |
 |---|---|
 | `DEV` | Idle state. Default on server boot. No event phase is active. Use this between test runs or when the server is on standby. |
-| `WAITING_PLAYERS` | Lobby screen is shown to all players. Voice chat is automatically muted for everyone. |
-| `TUTORIAL` | Activates the automated tutorial sequence. All 30 player slots are assigned at this stage. |
-| `MINI_EVENTS` | Starts the parkour minigame with checkpoint tracking and a 10-minute countdown timer. |
+| `WAITING_PLAYERS` | Lobby screen is shown to all players while they wait for the event to begin. |
+| `TUTORIAL` | Activates the automated tutorial sequence for all participants. |
+| `MINI_EVENTS` | Starts the mini-events phase, including the parkour minigame with checkpoint tracking. |
 | `PVP` | Activates the single-elimination tournament bracket and begins the PVP phase. |
 
 ## Intended Order

@@ -1,7 +1,7 @@
 ---
 title: "Crystal Legacy: A Minecraft Event Mod for 30 Players"
 sidebarTitle: "Introduction"
-description: "Crystal Legacy is a Minecraft 1.21.1 Fabric event mod built for 30-player events, featuring custom spells, automated tutorials, parkour, and a PVP tournament."
+description: "Crystal Legacy is a Minecraft 1.21.1 Fabric mod for 30-player events, featuring spells, automated tutorials, parkour, and a PVP tournament."
 ---
 
 Crystal Legacy is a Minecraft 1.21.1 Fabric event mod designed from the ground up for organized 30-player events. It ships with custom spells, an automated tutorial sequence, hand-crafted parkour challenges, and a climactic PVP tournament — all driven by a single server that handles every state transition automatically. Whether you are a player sitting down to compete or an organizer spinning up a server for your community, this documentation will walk you through everything you need to know.
@@ -17,16 +17,15 @@ Unzip the appropriate archive, follow the setup guide for your role, and you wil
 
 ## Event Phases
 
-Every Crystal Legacy session moves through four sequential phases managed entirely by the server:
+Every Crystal Legacy session moves through five sequential phases managed entirely by the server:
 
 | Phase | Description |
 |---|---|
+| `DEV` | The default state on boot. The server idles here for testing and map maintenance outside of a live event. |
 | `WAITING_PLAYERS` | The server idles at the lobby while players join and organizers prepare the event. |
 | `TUTORIAL` | An automated tutorial walks all connected players through core mechanics — spells, movement, and combat. |
 | `MINI_EVENTS` | Players compete across a series of structured mini-events including parkour challenges and spell-based encounters. |
 | `PVP` | The session culminates in a full 30-player PVP tournament until a winner is crowned. |
-
-There is also a `DEV` state available to operators for testing and map maintenance outside of a live event. No players are admitted during `DEV` mode.
 
 <Note>
   Every state transition is server-driven — players never need to take any action to move between phases. Players who join mid-event are automatically synced to the current phase and given any necessary context so they can participate immediately.

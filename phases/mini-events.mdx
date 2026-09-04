@@ -1,7 +1,7 @@
 ---
-title: "MINI_EVENTS: The Parkour Minigame"
+title: "MINI_EVENTS: Parkour Minigame with Checkpoints and Timer"
 sidebarTitle: "Mini Events"
-description: "The MINI_EVENTS state launches the Crystal Legacy parkour minigame, teleporting all players to the parkour map with a 10-minute countdown and a checkpoint system."
+description: "The MINI_EVENTS state teleports all players to the parkour map, starts a 10-minute countdown, and ends when every player clears the final checkpoint."
 ---
 
 The `MINI_EVENTS` state is the competitive warm-up between the tutorial and the main PVP bracket. When you enter this phase, the server teleports all players to the parkour map and starts a 10-minute countdown. Players race through the course, saving progress at checkpoints along the way. The minigame is designed to give players a chance to practise spell movement before combat begins.
@@ -55,20 +55,6 @@ Stops the parkour minigame immediately and removes players from the course.
 /master minievento parkour clear
 ```
 Clears all dynamic parkour data from the server (checkpoint states, player positions, runtime flags). Use this for a clean slate before restarting.
-
-<Tip>
-  The global countdown timer is managed independently of the parkour logic. You can pause or restart it at any time without affecting checkpoint state using:
-
-  ```bash
-  /master timer start ;seconds;
-  ```
-
-  ```bash
-  /master timer stop
-  ```
-
-  This is useful if you need to grant extra time mid-run or freeze the clock while resolving a technical issue.
-</Tip>
 
 ## Advancing to PVP
 

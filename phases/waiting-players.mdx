@@ -1,5 +1,5 @@
 ---
-title: "WAITING_PLAYERS: Lobby State Before the Event"
+title: "WAITING_PLAYERS: Lobby Holding State for 30 Players"
 sidebarTitle: "Waiting Players"
 description: "The WAITING_PLAYERS state shows a waiting screen to all connected players and automatically mutes voice chat until the operator advances to the Tutorial."
 ---
@@ -48,5 +48,5 @@ Once all 30 players are connected and you are ready to begin, advance to the nex
 ```
 
 <Tip>
-  Monitor your current connected player count at any time with `/master info`. This command returns a live snapshot of connected players, their registration status, and other server-side event data — handy for confirming your roster is complete before you move on.
+  Before advancing, visually confirm all 30 players are listed in the server player list. The waiting screen remains visible to players until you run `/master estado TUTORIAL`, so you have as much time as you need to verify the roster.
 </Tip>
