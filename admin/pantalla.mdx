@@ -1,0 +1,90 @@
+---
+title: "/master pantalla: Control Player Screens and Dialogues"
+sidebarTitle: "/master pantalla"
+description: "Use /master pantalla to show loading screens, start dialogue sequences, and show or hide the waiting screen for specific players or selectors."
+---
+
+The `/master pantalla` command group gives you direct control over the UI screens displayed to players during the event. Use these subcommands to show loading transitions, trigger scripted dialogue sequences from the event's dialogue library, and manually manage the waiting screen — targeting individual players or entire selectors as needed.
+
+## Loading Screen
+
+The loading screen blocks the player's view during a transition or scene change. You specify how long it stays visible using a tick-based duration.
+
+**Syntax:**
+
+```bash
+/master pantalla cargando mostrar ;player(s); ;time;
+```
+
+| Parameter | Description |
+|-----------|-------------|
+| `;player(s);` | A player name, `@a`, or `@e`. |
+| `;time;` | Duration in ticks (20 ticks = 1 second). |
+
+**Example:**
+
+```bash
+/master pantalla cargando mostrar @a 100
+```
+
+This shows the loading screen to all players for 5 seconds (100 ticks).
+
+<Note>
+  Time is always specified in **ticks**, not seconds. Divide your desired seconds by 20 to get the correct value — for example, 3 seconds = 60 ticks, 10 seconds = 200 ticks.
+</Note>
+
+## Dialogue
+
+The dialogue subcommand starts a scripted dialogue sequence from the event's dialogue library for one or more players.
+
+**Syntax:**
+
+```bash
+/master pantalla dialogos ;dialogue; ;player(s);
+```
+
+| Parameter | Description |
+|-----------|-------------|
+| `;dialogue;` | The ID of the dialogue sequence as defined in the event's dialogue library. |
+| `;player(s);` | A player name, `@a`, or `@e`. |
+
+**Example:**
+
+```bash
+/master pantalla dialogos intro @a
+```
+
+This triggers the `intro` dialogue sequence for all connected players simultaneously.
+
+To immediately clear any active dialogue from all clients, run:
+
+```bash
+/master data clear client dialogo
+```
+
+## Waiting Screen
+
+The waiting screen displays a "waiting for players" overlay to the specified players. You can show or hide it manually using the following commands.
+
+**Syntax:**
+
+```bash
+/master pantalla esperando mostrar ;player(s);
+/master pantalla esperando ocultar ;player(s);
+```
+
+**Example — show the waiting screen to all players:**
+
+```bash
+/master pantalla esperando mostrar @a
+```
+
+**Example — hide the waiting screen for a specific player:**
+
+```bash
+/master pantalla esperando ocultar Steve
+```
+
+<Tip>
+  The waiting screen is shown **automatically** for all players when the event enters the `WAITING_PLAYERS` state. Use these commands only when you need to manually override that behavior — for example, to hide the screen early for a specific player or to re-show it outside of the normal state transition.
+</Tip>

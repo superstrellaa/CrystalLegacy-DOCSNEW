@@ -1,0 +1,55 @@
+---
+title: "/master tutorial: Control the Tutorial Phase"
+sidebarTitle: "/master tutorial"
+description: "Use /master tutorial subcommands to monitor progress, skip steps, resync players, unlock spells, and stop the Tutorial phase during a Crystal Legacy event."
+---
+
+The `/master tutorial` command group gives operators full control over the automated tutorial sequence. Use these commands to monitor progress, recover from stuck states, manage spell unlocks, and bring individual players up to date if they fall behind or rejoin mid-tutorial.
+
+## Subcommands
+
+| Command | Description |
+|---|---|
+| `/master tutorial info` | Returns tutorial info: total steps, current step. |
+| `/master tutorial status` | Returns the tutorial's current status (similar to `info`). |
+| `/master tutorial skip` | Skips to the next tutorial step. Use if a minigame gets stuck. |
+| `/master tutorial stop` | Stops the tutorial entirely. |
+| `/master tutorial spell pass` | Passes/completes the current spell-unlock minigame for all players. |
+| `/master tutorial spell unlock ;spell;` | Automatically unlocks the given spell for all players. |
+| `/master tutorial spell send ;spell;` | Sends a custom spell-unlock minigame to all players. Not recommended. |
+| `/master tutorial varita` | Manually gives the wand (Varita) to all players. |
+| `/master tutorial resync player ;name;` | Resends all packets to bring a specific player up to date with the current step. |
+| `/master tutorial goto ;step;` | Jumps to a specific step number. Internal/creator tool only. |
+
+## Common Operations
+
+Use the examples below for the most frequent tutorial management tasks.
+
+```bash
+# Check tutorial progress
+/master tutorial info
+
+# Skip a stuck minigame
+/master tutorial skip
+
+# Unlock all spells immediately
+/master tutorial spell unlock dash
+/master tutorial spell unlock bola_de_fuego
+/master tutorial spell unlock levioso
+/master tutorial spell unlock hachazo
+
+# Resync a specific player
+/master tutorial resync player Steve
+```
+
+## Player Resync
+
+<Note>
+  `resync player` runs automatically when a player joins mid-tutorial — use it manually only as a fallback if the automatic sync fails and the player is visibly out of step with the rest of the group.
+</Note>
+
+## Step Navigation
+
+<Warning>
+  `goto ;step;` is an internal/creator-only tool. Do not use it without the official exported step list. Jumping to an arbitrary step without knowing its exact requirements can corrupt tutorial state for all players.
+</Warning>

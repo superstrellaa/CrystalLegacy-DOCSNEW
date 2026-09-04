@@ -1,0 +1,43 @@
+---
+title: "/master bgm: Control Background Music Playback"
+sidebarTitle: "/master bgm"
+description: "Use /master bgm to stop current background music or manually play a specific track by name for all connected players."
+---
+
+Crystal Legacy uses fully custom music playlists tailored to each event phase, automatically starting and transitioning as the event progresses. The `/master bgm` commands let you take manual control of music playback at any time — whether you need to cut the music immediately or trigger a specific track outside of the normal automated flow.
+
+## Stop Music
+
+Immediately stop the currently playing music for all connected players.
+
+**Syntax:**
+
+```bash
+/master bgm stop
+```
+
+## Play a Specific Track
+
+Play any track from the event's music library by name. This starts playback for all connected players immediately.
+
+**Syntax:**
+
+```bash
+/master bgm play ;song;
+```
+
+Replace `;song;` with the name of the track you want to play.
+
+**Example:**
+
+```bash
+/master bgm play combat_theme
+```
+
+<Note>
+  Each automated event phase triggers its own music playlist when it starts: **TUTORIAL**, **MINI_EVENTS**, and **PVP** all begin their respective music automatically. The **DEV** and **WAITING_PLAYERS** states do not trigger event music. Any manual `/master bgm` command will override the currently active automated playlist.
+</Note>
+
+<Tip>
+  Players control their own music volume through the vanilla Minecraft **Options → Music & Sounds → Music** slider. If a player reports that they cannot hear the music, ask them to check that slider first.
+</Tip>

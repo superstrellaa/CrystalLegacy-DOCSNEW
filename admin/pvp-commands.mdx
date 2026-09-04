@@ -1,0 +1,50 @@
+---
+title: "/master pvp: Manage the PVP Tournament"
+sidebarTitle: "/master pvp"
+description: "Use /master pvp subcommands to start matches, check combat status, trigger end credits, and stop the PVP tournament during a Crystal Legacy event."
+---
+
+The `/master pvp` command group gives operators control over the single-elimination PVP tournament during the PVP phase. Use these commands to start individual matches, check combat status, trigger the end-credits sequence, or halt the tournament if something goes wrong.
+
+## Subcommands
+
+| Command | Description |
+|---|---|
+| `/master pvp creditos` | Starts the end credits: centers cameras on bracket screen, hides HUD, plays credits music. |
+| `/master pvp start ;playerA; ;playerB;` | Enables PVP combat between exactly these two players (does not teleport them). |
+| `/master pvp status` | Returns current PVP combat status — whether two players currently have PVP enabled. |
+| `/master pvp stop` | Stops both the tournament and PVP combat. Also affects tournament state. |
+
+## Examples
+
+```bash
+# Check if PVP is currently active between players
+/master pvp status
+
+# Manually enable PVP between two specific players
+/master pvp start Steve Alex
+
+# Trigger the credits sequence at event end
+/master pvp creditos
+
+# Stop the tournament (use with caution)
+/master pvp stop
+```
+
+## PVP Activation
+
+<Note>
+  By design, players cannot damage each other anywhere in the event unless the server has automatically enabled it for a tournament match, or an operator has used `/master pvp start`. This prevents accidental combat outside of scheduled matches.
+</Note>
+
+## Stopping the Tournament
+
+<Warning>
+  `/master pvp stop` intentionally also stops the tournament — it is not intended for use during a normal event run. Only use this command if you need to abort the PVP phase entirely, as it will disrupt the bracket and cannot be undone without resetting tournament state.
+</Warning>
+
+## Debug Commands
+
+<Warning>
+  `torneodebug`, `torneokill`, and `torneokillall` are internal debug commands for creator use only. They have undocumented behavior and must not be used in production events. Running them during a live event may produce irreversible side effects on tournament state.
+</Warning>

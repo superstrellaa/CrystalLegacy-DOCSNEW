@@ -1,0 +1,62 @@
+---
+title: "Crystal Legacy Admin Commands: /master Overview"
+sidebarTitle: "Overview"
+description: "All Crystal Legacy admin commands live under /master and require OP. This page covers how to get started and what each command category controls."
+---
+
+Every admin action in Crystal Legacy flows through a single root command: `/master`. From transitioning event phases to resetting client state, managing player keys, controlling background music, and triggering the PVP bracket — everything you need to run a 30-player event is reachable from this one namespace. All subcommands require OP; non-OP players will receive a permission error or see no response at all.
+
+<Warning>
+  All `/master` commands require server operator (OP) privileges. Attempting to run any subcommand without OP will fail silently or return a permission error. Always confirm your OP status before running commands during a live event.
+</Warning>
+
+## Getting Started
+
+Before advancing through event phases, use `/master info` at any time to get a full debug readout of the current event state. This includes the active phase, registered players, timers, voice chat status, and more. Make it your first stop whenever something looks off.
+
+```bash
+/master info
+```
+
+## Command Categories
+
+Use the cards below to navigate to the documentation for each `/master` subcommand group.
+
+<CardGroup cols={2}>
+  <Card title="Estado" icon="flag" href="/admin/estado">
+    Transition the event between its five global phases using `/master estado`.
+  </Card>
+  <Card title="Data & Reset" icon="trash" href="/admin/data-clear">
+    Wipe in-memory event data and reset client state with `/master data clear`.
+  </Card>
+  <Card title="Player Keys" icon="key" href="/admin/teclas">
+    Manage per-player key assignments and inventory with `/master teclas`.
+  </Card>
+  <Card title="Spells" icon="wand-magic-sparkles" href="/admin/hechizo">
+    Configure and trigger spell mechanics via `/master hechizo` and `/master minijuego`.
+  </Card>
+  <Card title="Voice Chat" icon="microphone" href="/admin/voicechat">
+    Control Simple Voice Chat permissions and mute state with `/master voicechat`.
+  </Card>
+  <Card title="Warp" icon="location-dot" href="/admin/warp">
+    Teleport players to registered warp points using `/master warp`.
+  </Card>
+  <Card title="Screens" icon="display" href="/admin/pantalla">
+    Push custom overlay screens to players with `/master pantalla`.
+  </Card>
+  <Card title="Timer" icon="clock" href="/admin/timer">
+    Start, stop, and configure the on-screen countdown via `/master timer`.
+  </Card>
+  <Card title="Music" icon="music" href="/admin/bgm">
+    Play and stop background music tracks for all players with `/master bgm`.
+  </Card>
+  <Card title="Tutorial" icon="book-open" href="/admin/tutorial-commands">
+    Trigger and manage the automated tutorial sequence via `/master tutorial`.
+  </Card>
+  <Card title="Parkour" icon="person-running" href="/admin/minievento-parkour">
+    Control the parkour minigame and its checkpoints with `/master minievento parkour`.
+  </Card>
+  <Card title="PVP" icon="swords" href="/admin/pvp-commands">
+    Manage the single-elimination tournament bracket using `/master pvp`.
+  </Card>
+</CardGroup>

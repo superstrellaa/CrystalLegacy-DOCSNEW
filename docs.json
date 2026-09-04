@@ -1,72 +1,98 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "Crystal Legacy",
+  "theme": "almond",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#ef7025",
+    "light": "#eec9bc",
+    "dark": "#4fa1ab"
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "pages": [
+    "tabs": [
       {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "introduction",
+              "server-setup",
+              "client-setup",
+              "becoming-an-operator"
+            ]
+          },
+          {
+            "group": "Gameplay",
+            "pages": [
+              "gameplay/spells",
+              "gameplay/wand",
+              "gameplay/movement",
+              "gameplay/music"
+            ]
+          },
+          {
+            "group": "Event Phases",
+            "pages": [
+              "phases/overview",
+              "phases/waiting-players",
+              "phases/tutorial",
+              "phases/mini-events",
+              "phases/pvp"
+            ]
+          },
+          {
+            "group": "Entities & Decorations",
+            "pages": [
+              "entities/overview"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Admin Reference",
+        "groups": [
+          {
+            "group": "Command Overview",
+            "pages": [
+              "admin/overview",
+              "admin/estado",
+              "admin/data-clear"
+            ]
+          },
+          {
+            "group": "Player Management",
+            "pages": [
+              "admin/teclas",
+              "admin/hechizo",
+              "admin/voicechat",
+              "admin/warp"
+            ]
+          },
+          {
+            "group": "Screens & UI",
+            "pages": [
+              "admin/pantalla",
+              "admin/timer",
+              "admin/bgm"
+            ]
+          },
+          {
+            "group": "Phase Commands",
+            "pages": [
+              "admin/tutorial-commands",
+              "admin/minievento-parkour",
+              "admin/pvp-commands"
+            ]
+          }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
     ]
   },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+  "navbar": {
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/crystallegacy"
     }
   }
 }

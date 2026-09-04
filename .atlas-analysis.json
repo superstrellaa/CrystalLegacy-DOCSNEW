@@ -1,0 +1,134 @@
+{
+  "projectType": "saas",
+  "projectName": "Crystal Legacy",
+  "projectDescription": "A Minecraft 1.21.1 Fabric event mod for 30 players, featuring automated tutorials, parkour mini-events, a single-elimination PVP tournament, custom spells, and a full admin command suite.",
+  "theme": "almond",
+  "primaryColor": "#ef7025",
+  "lightColor": "#eec9bc",
+  "darkColor": "#4fa1ab",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "introduction",
+              "server-setup",
+              "client-setup",
+              "becoming-an-operator"
+            ]
+          },
+          {
+            "group": "Gameplay",
+            "pages": [
+              "gameplay/spells",
+              "gameplay/wand",
+              "gameplay/movement",
+              "gameplay/music"
+            ]
+          },
+          {
+            "group": "Event Phases",
+            "pages": [
+              "phases/overview",
+              "phases/waiting-players",
+              "phases/tutorial",
+              "phases/mini-events",
+              "phases/pvp"
+            ]
+          },
+          {
+            "group": "Entities & Decorations",
+            "pages": [
+              "entities/overview"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Admin Reference",
+        "groups": [
+          {
+            "group": "Command Overview",
+            "pages": [
+              "admin/overview",
+              "admin/estado",
+              "admin/data-clear"
+            ]
+          },
+          {
+            "group": "Player Management",
+            "pages": [
+              "admin/teclas",
+              "admin/hechizo",
+              "admin/voicechat",
+              "admin/warp"
+            ]
+          },
+          {
+            "group": "Screens & UI",
+            "pages": [
+              "admin/pantalla",
+              "admin/timer",
+              "admin/bgm"
+            ]
+          },
+          {
+            "group": "Phase Commands",
+            "pages": [
+              "admin/tutorial-commands",
+              "admin/minievento-parkour",
+              "admin/pvp-commands"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Four custom spells: Dash, Bola de Fuego, Levioso, Hachazo",
+    "Automated multi-step tutorial sequence with per-player slot assignment",
+    "Parkour mini-event with checkpoints and a 10-minute countdown",
+    "Single-elimination PVP tournament bracket with auto-generated bracket image",
+    "State-driven event flow (DEV → WAITING_PLAYERS → TUTORIAL → MINI_EVENTS → PVP)",
+    "Custom HUD showing spell cooldowns and keybinds",
+    "Integrated Simple Voice Chat control per event state",
+    "Admin /master command suite for full event control",
+    "Custom music playlists per event phase",
+    "Client mid-state join auto-sync"
+  ],
+  "publicApiSurface": [
+    "/master estado ;state;",
+    "/master data clear [all|bracket|client|parkour|pvp|timer|torneo|tutorial|voicechat]",
+    "/master hechizo ;bloquear/desbloquear; ;spell; ;player(s);",
+    "/master minievento parkour ;clear/reset/stop;",
+    "/master minijuego ;spell; ;player(s);",
+    "/master pantalla cargando mostrar ;player(s); ;time;",
+    "/master pantalla dialogos ;dialogue; ;player(s);",
+    "/master pantalla esperando ;mostrar/ocultar; ;player(s);",
+    "/master pvp creditos",
+    "/master pvp start ;playerA; ;playerB;",
+    "/master pvp status",
+    "/master pvp stop",
+    "/master teclas ;bloquear/desbloquear; ;player(s);",
+    "/master timer start ;seconds;",
+    "/master timer stop",
+    "/master voicechat ;true/false;",
+    "/master bgm stop",
+    "/master bgm play ;song;",
+    "/master warp ;location;",
+    "/master tutorial goto ;step;",
+    "/master tutorial info",
+    "/master tutorial resync player ;player name;",
+    "/master tutorial skip",
+    "/master tutorial spell pass",
+    "/master tutorial spell unlock ;spell;",
+    "/master tutorial status",
+    "/master tutorial stop",
+    "/master tutorial varita",
+    "/master apuntado deshabilitar/habilitar ;player(s);",
+    "/master info"
+  ]
+}

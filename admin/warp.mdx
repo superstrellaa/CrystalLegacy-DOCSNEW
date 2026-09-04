@@ -1,0 +1,33 @@
+---
+title: "/master warp: Teleport Players to Map Locations"
+sidebarTitle: "/master warp"
+description: "Use /master warp to teleport the executing player to a named warp point on the Crystal Legacy map. Available to all players, not just operators."
+---
+
+The `/master warp` command teleports you — the executing player — to a named warp point defined on the Crystal Legacy event map. Use it to quickly navigate between key locations such as spawn areas, arenas, or any other point the map author has configured, without needing to know the exact coordinates.
+
+<Note>
+  This command is available to **all** players, not just operators. Any connected player can use `/master warp` to navigate to the defined map locations.
+</Note>
+
+## Syntax
+
+```bash
+/master warp ;location;
+```
+
+Replace `;location;` with the name of the warp point you want to travel to. The full list of available warp points is defined by the event map currently loaded on the server.
+
+## Examples
+
+Teleport to the main spawn point:
+
+```bash
+/master warp spawn
+```
+
+Teleport to the arena:
+
+```bash
+/master warp arena
+```

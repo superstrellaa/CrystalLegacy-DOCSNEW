@@ -1,0 +1,47 @@
+---
+title: "/master timer: Start and Stop the Global Event Timer"
+sidebarTitle: "/master timer"
+description: "Use /master timer to start and stop the global countdown timer displayed to all players. The parkour mini-event manages its own timer automatically."
+---
+
+The global event timer displays a visible countdown to all connected players and is used to track time-limited phases throughout the event. Use `/master timer` to start a countdown for any custom timed segment, or to stop it when the phase ends or the situation changes.
+
+## Start the Timer
+
+Start a countdown by specifying the number of seconds remaining. The timer becomes visible to all players immediately.
+
+**Syntax:**
+
+```bash
+/master timer start ;seconds;
+```
+
+Replace `;seconds;` with the desired countdown duration in seconds.
+
+**Example — start a 10-minute countdown:**
+
+```bash
+/master timer start 600
+```
+
+## Stop the Timer
+
+Stop and hide the timer for all players at any time.
+
+**Syntax:**
+
+```bash
+/master timer stop
+```
+
+## Clear the Timer
+
+You can also clear the timer entirely using the data command. This stops the timer and removes it from all players' displays.
+
+```bash
+/master data clear timer
+```
+
+<Note>
+  The **MINI_EVENTS parkour phase** manages its own internal 10-minute timer automatically — you do not need to start the timer manually when parkour begins. Use `/master timer start` for custom timed segments, operator-controlled countdowns, or any phase that does not handle its own timing automatically.
+</Note>

@@ -1,0 +1,52 @@
+---
+title: "WAITING_PLAYERS: Lobby State Before the Event"
+sidebarTitle: "Waiting Players"
+description: "The WAITING_PLAYERS state shows a waiting screen to all connected players and automatically mutes voice chat until the operator advances to the Tutorial."
+---
+
+The `WAITING_PLAYERS` state is the first phase players experience after the server opens its doors. Every player who connects sees a dedicated waiting screen that signals the event has not started yet. This phase is intentionally quiet — voice chat is automatically muted server-wide so players do not talk over each other on the lobby screen. Your job during this phase is simply to confirm that all 30 players have joined before advancing.
+
+## Entering WAITING_PLAYERS
+
+Transition the server into the waiting lobby with:
+
+```bash
+/master estado WAITING_PLAYERS
+```
+
+## Player Experience
+
+When a player connects during this state they are immediately shown the waiting-for-players screen. They cannot interact with the event, cast spells, or hear other players through voice chat. The screen persists until you advance to the next phase.
+
+## Voice Chat Behavior
+
+Crystal Legacy automatically manages the `voicechat.speak` permission during this phase:
+
+- **On entering WAITING_PLAYERS** — voice chat is disabled for all connected players. No player can speak or hear others through Simple Voice Chat.
+- **On leaving WAITING_PLAYERS** — voice chat is automatically re-enabled for all players as the server transitions into `TUTORIAL`. You do not need to restore permissions manually.
+
+## Managing the Waiting Screen Per Player
+
+You can show or hide the waiting screen for individual players or groups without changing the global state:
+
+```bash
+/master pantalla esperando mostrar ;player(s);
+```
+
+```bash
+/master pantalla esperando ocultar ;player(s);
+```
+
+Replace `;player(s);` with a player name or a comma-separated list of names.
+
+## Advancing to TUTORIAL
+
+Once all 30 players are connected and you are ready to begin, advance to the next phase:
+
+```bash
+/master estado TUTORIAL
+```
+
+<Tip>
+  Monitor your current connected player count at any time with `/master info`. This command returns a live snapshot of connected players, their registration status, and other server-side event data — handy for confirming your roster is complete before you move on.
+</Tip>

@@ -1,0 +1,58 @@
+---
+title: "TUTORIAL: Automated Spell-Teaching Sequence"
+sidebarTitle: "Tutorial"
+description: "The TUTORIAL state assigns each of the 30 players a map slot and runs a scripted onboarding sequence that teaches all four Crystal Legacy spells."
+---
+
+The `TUTORIAL` state is a fully scripted, server-driven onboarding experience. When you enter this phase, the server automatically assigns each of the 30 players one of 30 pre-built tutorial slots on the map and begins walking every player through the Crystal Legacy spell system simultaneously. As the operator, your main role is to monitor progress and intervene only if a minigame stalls or a player gets desynced.
+
+## Entering TUTORIAL
+
+Transition the server into the tutorial phase with:
+
+```bash
+/master estado TUTORIAL
+```
+
+## How the Tutorial Works
+
+<Steps>
+  <Step title="Slot Assignment">
+    The server assigns each connected player a unique tutorial slot. All 30 slots are pre-built into the map — one per player — so everyone progresses through their own isolated space simultaneously.
+  </Step>
+  <Step title="Scripted Sequence">
+    The tutorial runs automatically. Each step is server-driven: dialogue, teleports, timing, and minigame triggers all fire without manual operator input.
+  </Step>
+  <Step title="Spell Unlock Minigames">
+    Players learn each of the four Crystal Legacy spells through a dedicated unlock minigame. There is one minigame per spell. Players must complete (or be passed through) each minigame before the tutorial advances.
+  </Step>
+  <Step title="Wand Distribution">
+    The Varita (wand) is automatically given to all players at the correct tutorial step. If a player joins mid-tutorial, the server issues the wand to them as part of the resync — you do not need to hand it out manually.
+  </Step>
+</Steps>
+
+## Late Joins and Resync
+
+Players who join after the tutorial has already started are automatically resynced by the server. The server detects their missing state, assigns them a slot, and brings them up to the current step. If automatic resync fails for a specific player, use the manual resync command described below.
+
+## Key Operator Commands
+
+Use these commands to monitor and manage the tutorial while it runs. For the complete command reference, see [Tutorial Admin Commands](/admin/tutorial-commands).
+
+- `/master tutorial info` — displays the current step number, total step count, and step status for all active players.
+- `/master tutorial skip` — advances the tutorial to the next step immediately. Use this if a spell-unlock minigame becomes stuck and cannot be completed normally.
+- `/master tutorial spell pass` — marks the current spell-unlock minigame as passed for all players at once. Use this as an alternative to `skip` when you want to unblock everyone without skipping any content.
+- `/master tutorial resync player ;name;` — manually resyncs a specific player. Replace `;name;` with the player's username.
+- `/master tutorial stop` — stops the tutorial entirely.
+
+<Note>
+  A `/master tutorial goto ;step;` command exists and can jump directly to any step by number. However, this is an **internal/creator tool** intended for development and map building. Do not use it during a live event run unless you have the official exported step list — jumping to an arbitrary step without knowing its exact preconditions can leave players in an undefined state.
+</Note>
+
+## Advancing to MINI_EVENTS
+
+Once all players have completed the tutorial sequence, advance to the next phase:
+
+```bash
+/master estado MINI_EVENTS
+```
