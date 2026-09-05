@@ -1,15 +1,15 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "name": "Crystal Legacy",
-  "theme": "willow",
+  "theme": "linden",
   "colors": {
     "primary": "#9d4613",
     "light": "#eec9bc",
     "dark": "#4fa1ab"
   },
   "favicon": {
-    "light": "/images/crystal_legacy-icon_transparent.png",
-    "dark": "/images/crystal_legacy-icon_transparent.png"
+    "light": "/images/crystal_legacy-icon.png",
+    "dark": "/images/crystal_legacy-icon.png"
   },
   "navigation": {
     "tabs": [
@@ -109,8 +109,8 @@
     "links": []
   },
   "logo": {
-    "light": "/images/crystal_legacy-icon.png",
-    "dark": "/images/crystal_legacy-icon.png"
+    "light": "/images/crystal_legacy-icon_transparent.png",
+    "dark": "/images/crystal_legacy-icon_transparent.png"
   },
   "icons": {
     "library": "fontawesome"
