@@ -61,8 +61,42 @@ Setting up the Crystal Legacy server takes only a few minutes. The server archiv
       boot.bat
       ```
     </CodeGroup>
+  </Step>
 
-    Wait for the line `Done! For help, type "help"` to appear in the console — the server is now accepting connections.
+  <Step title="Configure your license">
+    Crystal Legacy is a licensed product, and the very first boot is expected to shut the server down immediately after logging a large license error banner to the console. This is normal first-run behavior — the server auto-creates the license config file so you can fill it in, then exits.
+
+    You will see output similar to this on that first boot:
+
+    ```text title="First-boot console output"
+    [main/ERROR]: ======================================================================
+    [main/ERROR]:    CRYSTAL LEGACY — ERROR DE LICENCIA
+    [main/ERROR]: ======================================================================
+    [main/ERROR]:    No se ha configurado ninguna licencia para Crystal Legacy.
+    [main/ERROR]:
+    [main/ERROR]:    Abre el archivo: /path/to/server/config/crystal-legacy-licencia/license.toml
+    [main/ERROR]:    y rellena el campo "license" con tu clave de licencia.
+    [main/ERROR]:
+    [main/ERROR]:    Ejemplo de formato: license = "XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX"
+    [main/ERROR]: ======================================================================
+    ```
+
+    Open `config/crystal-legacy-licencia/license.toml` inside your extracted server folder and paste the license key from your purchase page into the `license` field:
+
+    ```toml title="config/crystal-legacy-licencia/license.toml"
+    license = "XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX"
+    debug = false
+    ```
+
+    Save the file and start the server again using the same script from the previous step (`./boot.sh` or `boot.bat`). On this second boot, the server contacts the license server automatically to validate your key and bind it to this server's IP address. If everything checks out, the server boots normally.
+
+    <Note>
+      The license only needs to be entered once per server installation, not on every restart.
+    </Note>
+
+    <Warning>
+      Leave `debug = false` unless support specifically asks you to enable it. This flag prints verbose internal logs about the license verification process and is intended only for troubleshooting with support, not for normal operation.
+    </Warning>
   </Step>
 
   <Step title="Configure Simple Voice Chat">
@@ -81,7 +115,7 @@ Setting up the Crystal Legacy server takes only a few minutes. The server archiv
   <Step title="Confirm the server is fully operational">
     Once the server has restarted with voice chat configured, it is ready for your event. You should see both the Minecraft server console output and a voice chat initialization line similar to:
 
-    ```
+    ```text
     [VoiceChat] Voice chat server started on port 25565
     ```
 
