@@ -1,13 +1,16 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "name": "Crystal Legacy",
-  "theme": "almond",
+  "theme": "willow",
   "colors": {
-    "primary": "#ef7025",
+    "primary": "#9d4613",
     "light": "#eec9bc",
     "dark": "#4fa1ab"
   },
-  "favicon": "/favicon.svg",
+  "favicon": {
+    "light": "/images/crystal_legacy-icon_transparent.png",
+    "dark": "/images/crystal_legacy-icon_transparent.png"
+  },
   "navigation": {
     "tabs": [
       {
@@ -87,12 +90,41 @@
           }
         ]
       }
-    ]
+    ],
+    "global": {
+      "tabs": [
+        {
+          "tab": "L0LAME Shop",
+          "icon": "cart-shopping",
+          "href": "https://www.lolame.studio/shop"
+        }
+      ]
+    }
   },
   "navbar": {
     "primary": {
       "type": "github",
       "href": "https://github.com/crystallegacy"
+    },
+    "links": []
+  },
+  "logo": {
+    "light": "/images/crystal_legacy-icon.png",
+    "dark": "/images/crystal_legacy-icon.png"
+  },
+  "icons": {
+    "library": "fontawesome"
+  },
+  "background": {
+    "decoration": "grid"
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/superstrellaa_",
+      "discord": "https://discord.gg/D7VA9qkant"
     }
+  },
+  "thumbnails": {
+    "background": "/images/cap.png"
   }
 }
