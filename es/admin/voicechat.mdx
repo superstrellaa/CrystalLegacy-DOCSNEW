@@ -1,0 +1,43 @@
+---
+title: "/master voicechat: Activar y Desactivar el Chat de Voz para Todos los Jugadores"
+sidebarTitle: "Chat de Voz"
+description: "Usa /master voicechat para habilitar o deshabilitar el permiso de hablar de Simple Voice Chat para todos los jugadores. Se desactiva automáticamente durante WAITING_PLAYERS."
+---
+
+Crystal Legacy se integra con [Simple Voice Chat](https://modrinth.com/plugin/simple-voice-chat) y gestiona el permiso `voicechat.speak` automáticamente según el estado actual del evento. El comando `/master voicechat` te permite anular manualmente ese permiso para todos los jugadores cuando necesitas control explícito sobre quién puede hablar durante el evento.
+
+<Tip>
+  Generalmente no necesitas usar este comando manualmente: el comportamiento automático maneja el chat de voz correctamente para cada estado del evento. Reserva las anulaciones manuales para situaciones excepcionales donde la lógica predeterminada no cubra tus necesidades.
+</Tip>
+
+## Comportamiento Automático
+
+Crystal Legacy ajusta el chat de voz automáticamente a medida que el evento avanza por sus estados:
+
+| Estado del Evento | Chat de Voz |
+| --- | --- |
+| `WAITING_PLAYERS` | Se establece automáticamente en `false` para todos |
+| Todos los demás estados | Habilitado para todos los jugadores |
+
+El chat de voz se desactiva durante `WAITING_PLAYERS` para que los jugadores no hablen encima de la pantalla de espera antes de que comience el evento.
+
+## Anulación Manual
+
+Para habilitar o deshabilitar manualmente el chat de voz para **todos** los jugadores, incluidos los OPs, ejecuta:
+
+```bash
+/master voicechat true
+/master voicechat false
+```
+
+Esto aplica el cambio de permiso `voicechat.speak` en todo el servidor de inmediato.
+
+## Restaurar el Valor Predeterminado
+
+Para borrar la anulación manual y devolver el chat de voz a su comportamiento automático basado en el estado, ejecuta:
+
+```bash
+/master data clear voicechat
+```
+
+Después de borrarlo, Crystal Legacy reanuda la gestión automática del permiso `voicechat.speak` según el estado activo del evento.

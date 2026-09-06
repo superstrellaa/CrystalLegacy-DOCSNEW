@@ -1,0 +1,85 @@
+---
+title: "Instala y Conecta el Modpack Cliente de Crystal Legacy"
+sidebarTitle: "Configuración del Cliente"
+description: "Extrae el .zip del cliente de Crystal Legacy, apúntalo a tu servidor y lanza con Java 21. Compatible con la App de Modrinth y cualquier launcher compatible con Fabric."
+---
+
+El cliente de Crystal Legacy se distribuye como una instancia de modpack autocontenida. Incluye cada mod Fabric requerido, todos los paquetes de recursos y una pantalla de título preconfigurada que te conecta a tu servidor de eventos con un solo botón. La configuración solo toma unos minutos: extrae el archivo, apunta el cliente a la dirección de tu servidor y estarás listo para jugar.
+
+<Note>
+  La **App de Modrinth** es el launcher recomendado para Crystal Legacy. Gestiona la instalación de Java 21 y el manejo de instancias automáticamente. Dicho esto, cualquier launcher capaz de ejecutar una instancia de modpack Fabric, como MultiMC, Prism Launcher o ATLauncher, funcionará perfectamente bien.
+</Note>
+
+## Requisitos
+
+| Recurso | Recomendado |
+| --- | --- |
+| Java | 21 |
+| RAM | ~8 GB asignados a la instancia |
+
+## Pasos de Configuración
+
+<Steps>
+  <Step title="Descarga y extrae el archivo del cliente">
+    Descarga `client.zip` desde el enlace que proporcionó tu organizador. Extrae el archivo en la ubicación de tu preferencia: una carpeta dedicada `CrystalLegacy` en tu escritorio funciona bien.
+
+    ```bash title="Extraer en Linux / macOS"
+    unzip client.zip -d crystal-legacy-client
+    cd crystal-legacy-client
+    ```
+
+    En Windows, haz clic derecho en `client.zip` en el Explorador de archivos y elige **Extraer todo…**, luego abre la carpeta resultante.
+  </Step>
+  <Step title="Apunta el cliente a tu servidor">
+    El botón **Jugar** de la pantalla de título está preconfigurado para conectarse a una dirección de servidor almacenada en un archivo de diseño de FancyMenu. Necesitas reemplazar el marcador de posición `localhost:25565` por la dirección IP y el puerto reales de tu servidor.
+
+    Abre el siguiente archivo en cualquier editor de texto plano:
+
+    ```text
+    /config/fancymenu/customization/title_screen_layout.txt
+    ```
+
+    Busca la línea que contiene `joinserver`. Se ve así:
+
+    ```text title="title_screen_layout.txt — antes"
+    [executable_action_instance:<uuid>][action_type:joinserver] = localhost:25565
+    ```
+
+    Reemplaza la dirección después del `=` con la dirección IP y el puerto de tu servidor:
+
+    ```text title="title_screen_layout.txt — después"
+    [executable_action_instance:<uuid>][action_type:joinserver] = 203.0.113.42:25565
+    ```
+
+    <Note>
+      La porción `<uuid>` de la clave es un identificador único generado cuando se construyó el diseño: déjalo exactamente como está. Solo cambia el valor a la derecha del signo `=`.
+    </Note>
+
+    Guarda el archivo y cierra tu editor.
+  </Step>
+  <Step title="Importa la instancia en tu launcher">
+    **App de Modrinth (recomendado)**
+
+    1. Abre la App de Modrinth y haz clic en **Agregar Instancia**.
+    2. Elige **Importar desde archivo** y selecciona la carpeta del cliente extraída (o el archivo `.mrpack` si se incluye en el archivo).
+    3. Establece la RAM asignada a **8 GB** en la configuración de la instancia, luego guarda.
+
+    **Otros launchers compatibles con Fabric (MultiMC, Prism, ATLauncher, etc.)**
+
+    1. Crea una nueva instancia y elige **Importar** o **Desde zip/carpeta**.
+    2. Apunta el launcher a la carpeta del cliente extraída.
+    3. Asegúrate de que la instancia use **Fabric** como cargador de mods y **Minecraft 1.21.1** como versión del juego.
+    4. Asigna al menos **8 GB** de RAM en la configuración de Java de la instancia.
+  </Step>
+  <Step title="Lanza el juego y únete al evento">
+    Inicia la instancia desde tu launcher. Una vez que cargue la pantalla de título, haz clic en el botón **Jugar**: Crystal Legacy te conectará directamente a la dirección del servidor configurada.
+
+    Si el servidor está en la fase `WAITING_PLAYERS`, serás colocado en el lobby automáticamente. Si un evento ya está en curso, el servidor te sincronizará con la fase actual para que puedas unirte sin perder el ritmo.
+  </Step>
+</Steps>
+
+## Solución de Problemas
+
+<Warning>
+  Si el botón **Jugar** produce un error de "Conexión rechazada", verifica que la dirección IP y el puerto en `title_screen_layout.txt` sean correctos y que el servidor esté ejecutándose. También puedes agregar el servidor manualmente mediante **Multijugador → Agregar Servidor** como alternativa.
+</Warning>

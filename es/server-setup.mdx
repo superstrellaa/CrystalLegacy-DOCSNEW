@@ -1,0 +1,121 @@
+---
+title: "Configuración del Servidor de Crystal Legacy: Descarga, Configura y Lanza"
+sidebarTitle: "Configuración del Servidor"
+description: "Descarga el .zip del servidor, configura el chat de voz y lanza Crystal Legacy localmente o en un panel de juegos como Pterodactyl o Pelican en pocos pasos."
+---
+
+Configurar el servidor de Crystal Legacy solo toma unos minutos. El archivo del servidor incluye todo lo que necesitas: el JAR del servidor Fabric, todos los mods requeridos, archivos de mundo preconstruidos y scripts de lanzamiento específicos para cada plataforma. Sigue los pasos a continuación para pasar de una descarga nueva a un servidor de eventos completamente operativo.
+
+<Warning>
+  Crystal Legacy requiere **Java 21**. Ejecutar el servidor en un JDK más antiguo producirá errores de inicio. Verifica tu versión de Java con `java -version` antes de continuar.
+</Warning>
+
+## Requisitos
+
+| Recurso | Recomendado |
+| --- | --- |
+| Java | 21 |
+| RAM | ~16 GB |
+| CPU | Carga ligera: cualquier CPU moderna multinúcleo es suficiente |
+
+<Tip>
+  Si no quieres administrar una máquina por tu cuenta, **Pterodactyl** o **Pelican** son excelentes opciones de panel de juegos de código abierto. Ambos admiten eggs de servidor Fabric personalizados, te ofrecen una interfaz web limpia para la gestión de archivos y acceso a la consola, y facilitan reiniciar el servidor entre eventos.
+</Tip>
+
+## Pasos de Configuración
+
+<Steps>
+  <Step title="Descarga y extrae el archivo del servidor">
+    Descarga `server.zip` desde el enlace proporcionado por tu organizador de eventos o la página de distribución de Crystal Legacy. Extrae el archivo en una carpeta dedicada en tu máquina o súbelo al panel.
+
+    ```bash title="Extraer en Linux / macOS"
+    unzip server.zip -d crystal-legacy-server
+    cd crystal-legacy-server
+    ```
+
+    En Windows, haz clic derecho en `server.zip` en el Explorador de archivos y elige **Extraer todo…**, luego abre la carpeta extraída.
+  </Step>
+  <Step title="Elige tu entorno de alojamiento">
+    Crystal Legacy se ejecuta en cualquier lugar donde Java 21 esté disponible:
+
+    - **Máquina local**: adecuado para eventos LAN o pruebas personales.
+    - **Panel Pterodactyl / Pelican**: sube la carpeta del servidor extraída mediante el administrador de archivos del panel o SFTP, luego configura un nuevo servidor usando un egg de Fabric. Establece el comando de inicio en `./boot.sh` (Linux) o apúntalo a `boot.bat` (contenedores Windows).
+    - **Cualquier host de juegos**: la mayoría de los hosts que admiten JARs personalizados o servidores Fabric funcionarán. Sube los archivos mediante FTP/SFTP y apunta el script de inicio a `boot.sh` o `boot.bat`.
+  </Step>
+  <Step title="Lanza el servidor">
+    Usa el script que coincida con tu plataforma. Ambos scripts aplican las banderas de JVM recomendadas y asignan la memoria apropiada automáticamente.
+
+    <CodeGroup>
+
+    ```bash title="Linux / macOS"
+    # Haz el script ejecutable (solo la primera vez)
+    chmod +x boot.sh
+    
+    # Inicia el servidor
+    ./boot.sh
+    ```
+
+    ```batch title="Windows"
+    REM Haz doble clic en boot.bat en el Explorador de archivos, o ejecútalo desde el Símbolo del sistema:
+    boot.bat
+    ```
+
+    </CodeGroup>
+  </Step>
+  <Step title="Configura tu licencia">
+    Crystal Legacy es un producto con licencia, y es normal que el primer inicio apague el servidor inmediatamente después de registrar un gran banner de error de licencia en la consola. Este es el comportamiento esperado del primer inicio: el servidor crea automáticamente el archivo de configuración de licencia para que puedas completarlo, y luego se cierra.
+
+    Verás una salida similar a esta en ese primer inicio:
+
+    ```text title="Salida de consola del primer inicio"
+    [main/ERROR]: ======================================================================
+    [main/ERROR]:    CRYSTAL LEGACY — ERROR DE LICENCIA
+    [main/ERROR]: ======================================================================
+    [main/ERROR]:    No se ha configurado ninguna licencia para Crystal Legacy.
+    [main/ERROR]:
+    [main/ERROR]:    Abre el archivo: /path/to/server/config/crystal-legacy-licencia/license.toml
+    [main/ERROR]:    y rellena el campo "license" con tu clave de licencia.
+    [main/ERROR]:
+    [main/ERROR]:    Ejemplo de formato: license = "XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX"
+    [main/ERROR]: ======================================================================
+    ```
+
+    Abre `config/crystal-legacy-licencia/license.toml` dentro de la carpeta de tu servidor extraído y pega la clave de licencia de tu página de compra en el campo `license`:
+
+    ```toml title="config/crystal-legacy-licencia/license.toml"
+    license = "XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX"
+    debug = false
+    ```
+
+    Guarda el archivo e inicia el servidor de nuevo usando el mismo script del paso anterior (`./boot.sh` o `boot.bat`). En este segundo inicio, el servidor contacta automáticamente al servidor de licencias para validar tu clave y vincularla a la dirección IP de este servidor. Si todo está correcto, el servidor inicia normalmente.
+
+    <Note>
+      La licencia solo necesita ingresarse una vez por instalación de servidor, no en cada reinicio.
+    </Note>
+
+    <Warning>
+      Deja `debug = false` a menos que el soporte te pida específicamente que lo habilites. Esta bandera imprime registros internos detallados sobre el proceso de verificación de licencia y está destinada únicamente para la solución de problemas con soporte, no para el funcionamiento normal.
+    </Warning>
+  </Step>
+  <Step title="Configura Simple Voice Chat">
+    Crystal Legacy usa el mod **Simple Voice Chat** para voz por proximidad. Después del primer lanzamiento, abre el archivo de configuración del servidor de chat de voz y establece el puerto:
+
+    ```properties title="/config/voicechat/voicechat-server.properties"
+    # Port the voice chat server listens on.
+    # You can reuse your main Minecraft port (default 25565) or pick a different one.
+    # If you use a different port, make sure it is open in your firewall / panel network rules.
+    port=25565
+    ```
+
+    Guarda el archivo y reinicia el servidor para que el cambio surta efecto. Los jugadores se conectarán al chat de voz automáticamente a través del mod en su cliente: no se requiere configuración adicional de su parte.
+  </Step>
+  <Step title="Confirma que el servidor está completamente operativo">
+    Una vez que el servidor se haya reiniciado con el chat de voz configurado, está listo para tu evento. Deberías ver tanto la salida de la consola del servidor de Minecraft como una línea de inicialización del chat de voz similar a:
+
+    ```text
+    [VoiceChat] Voice chat server started on port 25565
+    ```
+
+    Comparte la dirección IP y el puerto de tu servidor con los jugadores y dirígelos a la guía de [Configuración del Cliente](/client-setup).
+  </Step>
+</Steps>

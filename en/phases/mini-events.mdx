@@ -1,0 +1,68 @@
+---
+title: "MINI_EVENTS: Parkour Minigame with Checkpoints and Timer"
+sidebarTitle: "Mini Events"
+description: "The MINI_EVENTS state teleports all players to the parkour map, starts a 10-minute countdown, and ends when every player clears the final checkpoint."
+---
+
+The `MINI_EVENTS` state is the competitive warm-up between the tutorial and the main PVP bracket. When you enter this phase, the server teleports all players to the parkour map and starts a 10-minute countdown. Players race through the course, saving progress at checkpoints along the way. The minigame is designed to give players a chance to practise spell movement before combat begins.
+
+## Currently Available Mini-Events
+
+The only mini-event available in this version of Crystal Legacy is the **Parkour** minigame. Additional mini-event types may be added in future releases.
+
+## Entering MINI_EVENTS
+
+Transition the server into the mini-events phase with:
+
+```bash
+/master estado MINI_EVENTS
+```
+
+All registered players are teleported to the parkour map automatically as soon as the state changes.
+
+## How the Parkour Minigame Works
+
+<Steps>
+  <Step title="Teleport">
+    All players are instantly teleported to the start of the parkour course when the phase begins.
+  </Step>
+  <Step title="10-Minute Countdown">
+    A global 10-minute timer starts. The countdown is visible to all players on their HUD.
+  </Step>
+  <Step title="Checkpoints">
+    As players advance through the course, they hit checkpoints that save their position. If a player falls or dies, they respawn at their last checkpoint rather than at the start.
+  </Step>
+  <Step title="End Condition">
+    The minigame ends when every registered player reaches the final checkpoint **or** the 10-minute countdown reaches zero — whichever happens first.
+  </Step>
+</Steps>
+
+## Admin Control Commands
+
+Use these commands to manage the parkour during the event. For the full parkour admin reference, see [Parkour Admin Commands](/admin/minievento-parkour).
+
+```bash
+/master minievento parkour reset
+```
+
+Resets the entire parkour — repositions all players to the start and clears checkpoint progress.
+
+```bash
+/master minievento parkour stop
+```
+
+Stops the parkour minigame immediately and removes players from the course.
+
+```bash
+/master minievento parkour clear
+```
+
+Clears all dynamic parkour data from the server (checkpoint states, player positions, runtime flags). Use this for a clean slate before restarting.
+
+## Advancing to PVP
+
+Once the parkour minigame has concluded, advance to the tournament phase:
+
+```bash
+/master estado PVP
+```

@@ -1,0 +1,56 @@
+---
+title: "Crystal Legacy: Mod de Eventos de Minecraft para 30 Jugadores"
+sidebarTitle: "Inicio"
+description: "Crystal Legacy es un mod de eventos Fabric para Minecraft 1.21.1 con hechizos personalizados, tutoriales automatizados, parkour y un torneo PVP para 30 jugadores."
+---
+
+Crystal Legacy es un mod de eventos Fabric para Minecraft 1.21.1 diseñado para eventos organizados de 30 jugadores. Ofrece cuatro hechizos personalizados, una secuencia de tutorial automatizada, un mini-evento de parkour y un torneo PVP de eliminación directa: todo impulsado por una máquina de estados del lado del servidor y controlado mediante el conjunto de comandos de administrador `/master`.
+
+<CardGroup cols={2}>
+  <Card title="Configuración del Servidor" icon="server" href="/server-setup">
+    Descarga, extrae y lanza el servidor localmente o en un panel de juegos en minutos.
+  </Card>
+
+  <Card title="Configuración del Cliente" icon="gamepad" href="/client-setup">
+    Configura el mod del cliente y conéctate a tu servidor de eventos.
+  </Card>
+
+  <Card title="Guía de Juego" icon="wand-magic-sparkles" href="/gameplay/spells">
+    Aprende los cuatro hechizos, la varita, los atajos de teclado y cómo moverte por el mapa.
+  </Card>
+
+  <Card title="Fases del Evento" icon="flag-checkered" href="/phases/overview">
+    Comprende cómo fluye el evento desde Esperando Jugadores hasta PVP y créditos.
+  </Card>
+
+  <Card title="Convertirse en Operador" icon="shield-halved" href="/becoming-an-operator">
+    Obtén acceso OP y comienza a gestionar el evento.
+  </Card>
+
+  <Card title="Referencia de Administrador" icon="terminal" href="/admin/overview">
+    Referencia completa de cada comando `/master` disponible para operadores.
+  </Card>
+</CardGroup>
+
+## Cómo Funciona el Evento
+
+Crystal Legacy avanza a través de una secuencia de estados globales. El operador avanza el evento de estado en estado usando `/master estado ;state;`. Cada estado controla lo que cada jugador conectado ve y puede hacer.
+
+<Steps>
+  <Step title="Lanza el servidor">
+    Inicia el servidor de Crystal Legacy. Arranca en estado **DEV**: un estado de reposo neutral donde no hay ninguna fase de evento activa.
+  </Step>
+  <Step title="Conecta jugadores">
+    Cambia a **WAITING_PLAYERS**. Los jugadores que se unen ven la pantalla de espera. El chat de voz se silencia automáticamente hasta que comience el evento.
+  </Step>
+  <Step title="Ejecuta el tutorial">
+    Avanza a **TUTORIAL**. Cada uno de los 30 jugadores recibe una casilla de mapa dedicada y la secuencia de tutorial automatizada les enseña los cuatro hechizos.
+  </Step>
+  <Step title="Ejecuta mini-eventos y PVP">
+    Continúa a través de **MINI_EVENTS** (parkour) y luego **PVP** (llave de eliminación directa). El servidor construye la llave automáticamente a partir de todos los jugadores registrados.
+  </Step>
+</Steps>
+
+<Note>
+  Cada transición de estado es gestionada por el servidor. Si un jugador se une a mitad del evento, el servidor detecta automáticamente el estado activo y sincroniza los paquetes y la interfaz correctos para ese jugador.
+</Note>

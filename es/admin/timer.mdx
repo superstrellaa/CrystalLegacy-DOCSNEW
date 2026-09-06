@@ -1,0 +1,47 @@
+---
+title: "/master timer: Iniciar y Detener el Temporizador Global del Evento"
+sidebarTitle: "Control del Temporizador"
+description: "Usa /master timer para iniciar y detener el temporizador de cuenta regresiva global que se muestra a todos los jugadores. El minijuego de parkour gestiona su propio temporizador automáticamente."
+---
+
+El temporizador global del evento muestra una cuenta regresiva visible a todos los jugadores conectados y se usa para rastrear las fases con tiempo limitado durante el evento. Usa `/master timer` para iniciar una cuenta regresiva para cualquier segmento personalizado con tiempo limitado, o para detenerla cuando la fase termina o la situación cambia.
+
+## Iniciar el Temporizador
+
+Inicia una cuenta regresiva especificando la cantidad de segundos restantes. El temporizador se vuelve visible para todos los jugadores de inmediato.
+
+**Sintaxis:**
+
+```bash
+/master timer start ;seconds;
+```
+
+Reemplaza `;seconds;` con la duración deseada de la cuenta regresiva en segundos.
+
+**Ejemplo: iniciar una cuenta regresiva de 10 minutos:**
+
+```bash
+/master timer start 600
+```
+
+## Detener el Temporizador
+
+Detén y oculta el temporizador para todos los jugadores en cualquier momento.
+
+**Sintaxis:**
+
+```bash
+/master timer stop
+```
+
+## Borrar el Temporizador
+
+También puedes borrar el temporizador por completo usando el comando de datos. Esto detiene el temporizador y lo elimina de las pantallas de todos los jugadores.
+
+```bash
+/master data clear timer
+```
+
+<Note>
+  La **fase de parkour de MINI_EVENTS** gestiona su propio temporizador interno de 10 minutos automáticamente: no necesitas iniciar el temporizador manualmente cuando comienza el parkour. Usa `/master timer start` para segmentos personalizados con tiempo limitado, cuentas regresivas controladas por operadores, o cualquier fase que no gestione su propio tiempo automáticamente.
+</Note>

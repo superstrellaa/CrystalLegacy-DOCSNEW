@@ -1,0 +1,73 @@
+---
+title: "/master hechizo: Administra y Desbloquea Hechizos para Jugadores"
+sidebarTitle: "Hechizo"
+description: "Usa /master hechizo para bloquear o desbloquear hechizos individuales para jugadores específicos, y /master minijuego para activar minijuegos de desbloqueo de hechizos."
+---
+
+Crystal Legacy otorga a cada jugador acceso a un conjunto de hechizos que desbloquea progresivamente durante el evento. Los comandos `/master hechizo` y `/master minijuego` te permiten tomar control manual de ese proceso: bloquear o conceder hechizos directamente, o lanzar el minijuego de desbloqueo para un jugador específico fuera del flujo normal del Tutorial.
+
+<Note>
+  Los hechizos normalmente se desbloquean automáticamente durante la secuencia del Tutorial. Usa estos comandos solo cuando necesites conceder o revocar acceso a hechizos manualmente fuera de ese flujo, como cuando solucionas problemas o ejecutas un escenario personalizado.
+</Note>
+
+## `/master hechizo`
+
+Usa `/master hechizo` para bloquear o desbloquear un hechizo específico para uno o más jugadores. Esta es una concesión o revocación directa: no interviene ningún minijuego.
+
+### Sintaxis
+
+```bash
+/master hechizo bloquear ;spell; ;player(s);
+/master hechizo desbloquear ;spell; ;player(s);
+```
+
+Reemplaza `;spell;` con uno de los nombres de hechizos disponibles y `;player(s);` con un nombre de jugador o selector.
+
+### Hechizos Disponibles
+
+| Hechizo | Descripción |
+| --- | --- |
+| `dash` | Dash rápido direccional |
+| `bola_de_fuego` | Lanza un proyectil de bola de fuego |
+| `levioso` | Levita al objetivo |
+| `hachazo` | Ejecuta un poderoso golpe de hacha |
+
+### Ejemplos
+
+Bloquea el hechizo `dash` para todos los jugadores:
+
+```bash
+/master hechizo bloquear dash @a
+```
+
+Desbloquea `levioso` para un jugador específico:
+
+```bash
+/master hechizo desbloquear levioso Steve
+```
+
+---
+
+## `/master minijuego`
+
+Usa `/master minijuego` para iniciar el minijuego de desbloqueo de hechizos para un hechizo y jugador(es) determinados. Cuando el jugador completa el minijuego, ese hechizo se desbloquea para él. Esto replica el mecanismo utilizado durante la secuencia del Tutorial y es la forma prevista de presentar cada hechizo a los jugadores de manera guiada.
+
+### Sintaxis
+
+```bash
+/master minijuego ;spell; ;player(s);
+```
+
+### Ejemplos
+
+Inicia el minijuego de desbloqueo de `dash` para todos los jugadores:
+
+```bash
+/master minijuego dash @a
+```
+
+Inicia el minijuego de `hachazo` para un jugador específico:
+
+```bash
+/master minijuego hachazo Steve
+```

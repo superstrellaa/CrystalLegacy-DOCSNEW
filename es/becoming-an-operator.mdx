@@ -1,0 +1,57 @@
+---
+title: "Convertirse en Operador de Crystal Legacy: Acceso y Comandos"
+sidebarTitle: "Configuración de Operador"
+description: "Obtén acceso OP en el servidor de Crystal Legacy y aprende el primer comando para verificar tu estado de administrador e inspeccionar el estado actual del evento."
+---
+
+Antes de poder usar cualquier comando de administrador de Crystal Legacy, tu cuenta de Minecraft debe tener el **estado de operador (OP)** en el servidor. Cada subcomando de `/master` realiza una verificación de permisos al inicio, y los jugadores que no son OP reciben un mensaje de acceso denegado sin ningún efecto adicional. Los pasos a continuación te guiarán para otorgarte el estado de operador, verificarlo con el comando de diagnóstico integrado del mod, y familiarizarte con los dos comandos que usarás con más frecuencia al preparar un evento.
+
+<Warning>
+  Los jugadores OP son **excluidos automáticamente del registro de jugadores** en la llave del torneo. Nunca otorgues OP a ninguna cuenta que deba competir como concursante: hacerlo los elimina silenciosamente de la elegibilidad y no se puede deshacer a mitad del evento sin reiniciar la llave.
+</Warning>
+
+## Otorgar Acceso de Operador
+
+<Steps>
+  <Step title="Únete al servidor al menos una vez">
+    Inicia sesión en el servidor de Crystal Legacy con la cuenta de Minecraft que planeas usar para la administración. El servidor debe registrar tu nombre de usuario en sus datos de jugador antes de que el comando `op` lo resuelva correctamente.
+  </Step>
+  <Step title="Ejecuta el comando op desde la consola del servidor">
+    Abre la consola del servidor (o pide a un operador existente que ejecute el comando en el juego) y ejecuta:
+
+    ```bash
+    op <yourUsername>
+    ```
+
+    Reemplaza `<yourUsername>` con tu nombre de usuario exacto de Minecraft. La consola imprime una línea de confirmación como `Made <yourUsername> a server operator` cuando el comando tiene éxito.
+  </Step>
+  <Step title="Desconéctate y vuelve a conectarte">
+    Sal del juego completamente y vuelve a unirte al servidor. La reconexión limpia tu caché de permisos del lado del cliente, asegura que el servidor reevalúe tu nivel de operador al iniciar sesión, y permite que Crystal Legacy registre tu estado elevado para todas las verificaciones de permisos de `/master`. Ahora eres un administrador completo.
+  </Step>
+</Steps>
+
+<Note>
+  Solo los **jugadores registrados que no son OP** tienen sus mensajes de chat, interacciones con inventario y lanzamientos de objetos bloqueados por el bloqueo de eventos de Crystal Legacy. Como operador, nunca estás sujeto a esas restricciones, independientemente del estado actual del evento.
+</Note>
+
+## Tus Primeros Comandos
+
+Una vez que tengas acceso de operador, ejecuta el comando de diagnóstico de inmediato para confirmar que todo funciona y obtener una instantánea del estado actual del evento.
+
+<CardGroup cols={2}>
+  <Card title="/master info" icon="circle-info">
+    Imprime información completa de depuración sobre el estado actual del evento: fase activa, jugadores registrados, estado de la llave y banderas internas. Ejecuta esto primero después de otorgar OP para verificar que tu acceso sea reconocido por el mod.
+
+    ```text
+    /master info
+    ```
+  </Card>
+
+  <Card title="/master estado ;state;" icon="arrow-right-arrow-left">
+    Avanza el evento a una nueva fase. Usa este comando para moverte a través del ciclo de vida del torneo, por ejemplo, abrir el registro, iniciar partidas o cerrar el evento. Consulta la página de [Estado (Avanzar Estado)](/admin/estado) para conocer todos los valores de estado válidos y las reglas de transición.
+
+    ```text
+    /master estado ;state;
+    ```
+  </Card>
+</CardGroup>

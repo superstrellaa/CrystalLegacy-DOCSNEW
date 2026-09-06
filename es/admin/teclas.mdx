@@ -1,0 +1,50 @@
+---
+title: "/master teclas: Bloquea y desbloquea teclas restringidas de los jugadores"
+sidebarTitle: "Teclas"
+description: "Usa /master teclas para bloquear o desbloquear las teclas restringidas por defecto (chat, inventario y soltar ítems) para jugadores o selectores específicos durante el evento."
+---
+
+El comando `/master teclas` te permite anular el comportamiento predeterminado de bloqueo de teclas para jugadores individuales o grupos durante el evento. Por defecto, cada jugador registrado que no sea OP tiene sus teclas de **chat**, **inventario** y **soltar ítems** bloqueadas durante toda la duración del evento, previniendo entradas accidentales o no autorizadas. Usa este comando cuando necesites otorgar o revocar ese acceso sobre la marcha sin reiniciar o reconfigurar el evento.
+
+<Note>
+  Los jugadores OP nunca están sujetos al bloqueo de teclas, independientemente de lo que especifique este comando. Las restricciones de teclas solo se aplican a jugadores registrados que no sean OP.
+</Note>
+
+## Sintaxis
+
+Usa `bloquear` para restringir las teclas y `desbloquear` para restaurarlas para el o los jugadores objetivo.
+
+```bash
+/master teclas bloquear ;player(s);
+/master teclas desbloquear ;player(s);
+```
+
+Reemplaza `;player(s);` con uno de los selectores aceptados descritos a continuación.
+
+## Selectores de Jugador Aceptados
+
+| Selector | Objetivo |
+| --- | --- |
+| `@a` | Todos los jugadores actualmente en el servidor |
+| `@e` | Todas las entidades (incluyendo jugadores) |
+| `Steve` | Un jugador específico por nombre |
+
+## Ejemplos
+
+Bloquea las teclas para todos los jugadores a la vez. Útil al transicionar a una fase controlada:
+
+```bash
+/master teclas bloquear @a
+```
+
+Restaura las teclas para un jugador específico por nombre:
+
+```bash
+/master teclas desbloquear Steve
+```
+
+Restaura las teclas para todas las entidades:
+
+```bash
+/master teclas desbloquear @e
+```

@@ -1,0 +1,55 @@
+---
+title: "/master tutorial: Gestionar los Comandos de la Fase del Tutorial"
+sidebarTitle: "Comandos del Tutorial"
+description: "Usa los subcomandos de /master tutorial para monitorear el progreso, saltar pasos, resincronizar jugadores, desbloquear hechizos y detener la fase del Tutorial durante un evento de Crystal Legacy."
+---
+
+El grupo de comandos `/master tutorial` da a los operadores control total sobre la secuencia de tutorial automatizada. Usa estos comandos para monitorear el progreso, recuperarte de estados bloqueados, gestionar los desbloqueos de hechizos y poner a jugadores individuales al día si se quedan atrás o se unen a mitad del tutorial.
+
+## Subcomandos
+
+| Comando | Descripción |
+| --- | --- |
+| `/master tutorial info` | Devuelve información del tutorial: pasos totales, paso actual. |
+| `/master tutorial status` | Devuelve el estado actual del tutorial (similar a `info`). |
+| `/master tutorial skip` | Salta al siguiente paso del tutorial. Úsalo si un minijuego se bloquea. |
+| `/master tutorial stop` | Detiene el tutorial por completo. |
+| `/master tutorial spell pass` | Pasa/completa el minijuego de desbloqueo de hechizos actual para todos los jugadores. |
+| `/master tutorial spell unlock ;spell;` | Desbloquea automáticamente el hechizo indicado para todos los jugadores. |
+| `/master tutorial spell send ;spell;` | Envía un minijuego personalizado de desbloqueo de hechizos a todos los jugadores. No recomendado. |
+| `/master tutorial varita` | Da la varita (Varita) manualmente a todos los jugadores. |
+| `/master tutorial resync player ;name;` | Reenvía todos los paquetes para poner a un jugador específico al día con el paso actual. |
+| `/master tutorial goto ;step;` | Salta a un número de paso específico. Solo herramienta interna/del creador. |
+
+## Operaciones Comunes
+
+Usa los ejemplos a continuación para las tareas de gestión del tutorial más frecuentes.
+
+```bash
+# Verificar el progreso del tutorial
+/master tutorial info
+
+# Saltar un minijuego bloqueado
+/master tutorial skip
+
+# Desbloquear todos los hechizos de inmediato
+/master tutorial spell unlock dash
+/master tutorial spell unlock bola_de_fuego
+/master tutorial spell unlock levioso
+/master tutorial spell unlock hachazo
+
+# Resincronizar a un jugador específico
+/master tutorial resync player Steve
+```
+
+## Resincronización de Jugadores
+
+<Note>
+  `resync player` se ejecuta automáticamente cuando un jugador se une a mitad del tutorial: úsalo manualmente solo como respaldo si la sincronización automática falla y el jugador está visiblemente desfasado respecto al resto del grupo.
+</Note>
+
+## Navegación de Pasos
+
+<Warning>
+  `goto ;step;` es una herramienta solo interna/del creador. No la uses sin la lista oficial de pasos exportada. Saltar a un paso arbitrario sin conocer sus requisitos exactos puede corromper el estado del tutorial para todos los jugadores.
+</Warning>

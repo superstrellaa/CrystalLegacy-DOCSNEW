@@ -1,0 +1,45 @@
+---
+title: "Música de Crystal Legacy: Banda sonora personalizada y listas por fase"
+sidebarTitle: "Música"
+description: "Crystal Legacy tiene una banda sonora completamente personalizada con listas de reproducción automáticas por fase. Ajusta el volumen con el control deslizante de Música o usa comandos BGM de administrador para gestionar las pistas."
+---
+
+Crystal Legacy incluye una banda sonora completamente personalizada: desde la pantalla de título que ves antes de unirte hasta la música que suena durante cada etapa del evento. Ninguna de la música es el audio predeterminado de Minecraft; cada pista fue seleccionada específicamente para la experiencia de Crystal Legacy. La música hace la transición automáticamente a medida que el evento avanza por sus fases, manteniendo la atmósfera acorde a lo que está sucediendo en el juego.
+
+<Note>
+  La música es puramente presentación del lado del cliente. Ajustar tu volumen o detener la reproducción no afecta la jugabilidad, el estado del evento ni la experiencia de ningún otro jugador.
+</Note>
+
+## Música por fase
+
+Cada fase activa del evento inicia automáticamente su propia lista de reproducción seleccionada cuando se activa. Las fases que reproducen música son:
+
+| Fase | ¿Música activada? |
+| --- | --- |
+| TUTORIAL | Sí |
+| MINI_EVENTS | Sí |
+| PVP | Sí |
+| WAITING_PLAYERS | No |
+| DEV | No |
+
+Cuando hay una transición de fase, la música de la fase anterior se detiene y la lista de reproducción de la nueva fase comienza automáticamente: no se requiere ninguna acción de los jugadores ni de los operadores.
+
+## Control de volumen
+
+Controlas el volumen de la música a través de la configuración de audio estándar de Minecraft. Ve a **Opciones → Música y sonidos → Música** y ajusta el control deslizante de **Música** al nivel que prefieras. Ponerlo en cero silencia por completo toda la música del evento sin afectar otros efectos de sonido.
+
+## Comandos de música para administradores
+
+Los operadores pueden gestionar la reproducción de música directamente usando los siguientes comandos:
+
+```bash
+/master bgm stop
+```
+
+Detiene inmediatamente la pista que se está reproduciendo.
+
+```bash
+/master bgm play ;song;
+```
+
+Reproduce una pista específica por nombre. Reemplaza `;song;` con el nombre de la pista que quieres iniciar. Esto es útil para probar audio, preparar una canción específica para un momento dramático, o reiniciar una pista que fue interrumpida.

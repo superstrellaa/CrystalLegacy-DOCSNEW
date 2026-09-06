@@ -1,0 +1,62 @@
+---
+title: "Crystal Legacy: Un Mod de Eventos de Minecraft para 30 Jugadores"
+sidebarTitle: "Introducción"
+description: "Crystal Legacy es un mod Fabric para Minecraft 1.21.1 diseñado para eventos de 30 jugadores, con hechizos, tutoriales automatizados, parkour y un torneo PVP."
+---
+
+Crystal Legacy es un mod de eventos Fabric para Minecraft 1.21.1 diseñado desde cero para eventos organizados de 30 jugadores. Incluye hechizos personalizados, una secuencia de tutorial automatizada, desafíos de parkour hechos a mano y un torneo PVP culminante: todo impulsado por un único servidor que gestiona cada transición de estado automáticamente. Ya seas un jugador que se sienta a competir o un organizador que prepara un servidor para tu comunidad, esta documentación te guiará a través de todo lo que necesitas saber.
+
+## Cómo se Distribuye Crystal Legacy
+
+Crystal Legacy se distribuye como dos archivos:
+
+- **`server.zip`**: contiene el servidor Fabric, todos los mods requeridos, archivos de configuración y scripts de lanzamiento.
+- **`client.zip`**: contiene una instancia de modpack Fabric lista para importar, preconfigurada para conectarse a tu servidor de eventos.
+
+Extrae el archivo correspondiente, sigue la guía de configuración para tu rol y estarás listo para jugar en minutos.
+
+## Fases del Evento
+
+Cada sesión de Crystal Legacy avanza a través de cinco fases secuenciales gestionadas enteramente por el servidor:
+
+| Fase | Descripción |
+| --- | --- |
+| `DEV` | El estado por defecto al iniciar. El servidor permanece aquí para pruebas y mantenimiento del mapa fuera de un evento en vivo. |
+| `WAITING_PLAYERS` | El servidor espera en el lobby mientras los jugadores se unen y los organizadores preparan el evento. |
+| `TUTORIAL` | Un tutorial automatizado guía a todos los jugadores conectados a través de las mecánicas principales: hechizos, movimiento y combate. |
+| `MINI_EVENTS` | Los jugadores compiten en una serie de mini-eventos estructurados que incluyen desafíos de parkour y encuentros basados en hechizos. |
+| `PVP` | La sesión culmina en un torneo PVP completo de 30 jugadores hasta que se corona un ganador. |
+
+<Note>
+  Cada transición de estado es impulsada por el servidor: los jugadores nunca necesitan realizar ninguna acción para moverse entre fases. Los jugadores que se unen a mitad del evento se sincronizan automáticamente con la fase actual y reciben el contexto necesario para poder participar de inmediato.
+</Note>
+
+## Requisitos
+
+| Componente | Requisito |
+| --- | --- |
+| Java | 21 (recomendado) |
+| RAM del Servidor | ~16 GB (la carga de CPU es ligera) |
+| RAM del Cliente | ~8 GB |
+
+## Empezar
+
+Usa las tarjetas a continuación para ir directamente a la guía que corresponde a tu rol.
+
+<CardGroup cols={2}>
+  <Card title="Configuración del Servidor" icon="server" href="/server-setup">
+    Descarga el .zip del servidor, configura el chat de voz y lanza Crystal Legacy localmente o en un panel de juegos.
+  </Card>
+
+  <Card title="Configuración del Cliente" icon="computer" href="/client-setup">
+    Extrae el .zip del cliente, apúntalo a tu servidor y lanza con tu launcher preferido compatible con Fabric.
+  </Card>
+
+  <Card title="Convertirse en Operador" icon="shield" href="/becoming-an-operator">
+    Aprende a gestionar el evento, transicionar fases y usar comandos exclusivos de operador.
+  </Card>
+
+  <Card title="Resumen de Fases" icon="map" href="/phases/overview">
+    Profundiza en cada fase del evento: qué sucede, cuánto dura y qué experimentan los jugadores.
+  </Card>
+</CardGroup>

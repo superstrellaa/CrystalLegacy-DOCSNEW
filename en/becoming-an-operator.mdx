@@ -1,0 +1,57 @@
+---
+title: "Becoming a Crystal Legacy Operator: Access and Commands"
+sidebarTitle: "Operator Setup"
+description: "Grant yourself OP access on the Crystal Legacy server and learn the first command to verify your admin status and inspect the current event state."
+---
+
+Before you can use any Crystal Legacy admin command, your Minecraft account must hold **operator (OP) status** on the server. Every `/master` subcommand performs a permission check at the start, and non-OP players receive an access-denied message with no further effect. The steps below walk you through granting yourself operator status, verifying it with the mod's built-in diagnostic command, and getting familiar with the two commands you will reach for most often when setting up an event.
+
+<Warning>
+  OP players are **automatically excluded from player registration** in the tournament bracket. Never grant OP to any account that should compete as a contestant — doing so silently removes them from eligibility and cannot be undone mid-event without resetting the bracket.
+</Warning>
+
+## Granting Operator Access
+
+<Steps>
+  <Step title="Join the server at least once">
+    Log in to the Crystal Legacy server with the Minecraft account you intend to use for administration. The server must register your username in its player data before the `op` command will resolve it correctly.
+  </Step>
+  <Step title="Run the op command from the server console">
+    Open the server console (or ask an existing operator to run the command in-game) and execute:
+
+    ```bash
+    op <yourUsername>
+    ```
+
+    Replace `<yourUsername>` with your exact Minecraft username. The console prints a confirmation line such as `Made <yourUsername> a server operator` when the command succeeds.
+  </Step>
+  <Step title="Disconnect and reconnect">
+    Quit the game completely and rejoin the server. The reconnection flushes your client-side permission cache, ensures the server re-evaluates your operator level on login, and lets Crystal Legacy register your elevated status for all `/master` permission checks. You are now a full admin.
+  </Step>
+</Steps>
+
+<Note>
+  Only **registered, non-OP players** have their chat messages, inventory interactions, and item drops blocked by Crystal Legacy's event lock. As an operator you are never subject to those restrictions, regardless of the current event state.
+</Note>
+
+## Your First Commands
+
+Once you have operator access, run the diagnostic command immediately to confirm everything is working and to get a snapshot of the current event state.
+
+<CardGroup cols={2}>
+  <Card title="/master info" icon="circle-info">
+    Prints full debug information about the current state of the event — active phase, registered players, bracket status, and internal flags. Run this first after granting OP to verify your access is recognised by the mod.
+
+    ```text
+    /master info
+    ```
+  </Card>
+
+  <Card title="/master estado ;state;" icon="arrow-right-arrow-left">
+    Advances the event to a new phase. Use this command to move through the tournament lifecycle — for example, opening registration, starting matches, or closing the event. See the [Estado (Advance State)](/admin/estado) page for all valid state values and transition rules.
+
+    ```text
+    /master estado ;state;
+    ```
+  </Card>
+</CardGroup>

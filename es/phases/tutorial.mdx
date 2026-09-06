@@ -1,0 +1,61 @@
+---
+title: "TUTORIAL: Secuencia Automatizada de Enseñanza de Hechizos para 30 Jugadores"
+sidebarTitle: "Tutorial"
+description: "El estado TUTORIAL asigna a cada uno de los 30 jugadores un slot en el mapa y ejecuta una secuencia de incorporación scripteada que enseña los cuatro hechizos de Crystal Legacy."
+---
+
+El estado `TUTORIAL` es una experiencia de incorporación completamente scripteada y dirigida por el servidor. Cuando entras a esta fase, el servidor asigna automáticamente a cada uno de los 30 jugadores uno de los 30 slots de tutorial preconstruidos en el mapa y comienza a guiar a todos los jugadores a través del sistema de hechizos de Crystal Legacy simultáneamente. Como operador, tu rol principal es monitorear el progreso e intervenir solo si un minijuego se atasca o un jugador se desincroniza.
+
+## Entrar a TUTORIAL
+
+Cambia el servidor a la fase de tutorial con:
+
+```bash
+/master estado TUTORIAL
+```
+
+## Cómo Funciona el Tutorial
+
+<Steps>
+  <Step title="Asignación de Slots">
+    El servidor asigna a cada jugador conectado un slot de tutorial único. Los 30 slots están preconstruidos en el mapa, uno por jugador, así que todos avanzan a través de su propio espacio aislado simultáneamente.
+  </Step>
+  <Step title="Secuencia Scripteada">
+    El tutorial se ejecuta automáticamente. Cada paso es dirigido por el servidor: diálogos, teletransportes, tiempos y activadores de minijuegos se ejecutan todos sin intervención manual del operador.
+  </Step>
+  <Step title="Minijuegos de Desbloqueo de Hechizos">
+    Los jugadores aprenden cada uno de los cuatro hechizos de Crystal Legacy a través de un minijuego de desbloqueo dedicado. Hay un minijuego por hechizo. Los jugadores deben completar (o ser pasados a través de) cada minijuego antes de que el tutorial avance.
+  </Step>
+  <Step title="Distribución de la Varita">
+    La Varita se entrega automáticamente a todos los jugadores en el paso correcto del tutorial. Si un jugador se une en medio del tutorial, el servidor le entrega la varita como parte de la resincronización: no necesitas entregarla manualmente.
+  </Step>
+</Steps>
+
+## Conexiones Tardías y Resincronización
+
+Los jugadores que se unen después de que el tutorial ya ha comenzado son resincronizados automáticamente por el servidor. El servidor detecta su estado faltante, les asigna un slot y los pone al día con el paso actual. Si la resincronización automática falla para un jugador específico, usa el comando de resincronización manual descrito abajo.
+
+## Comandos Clave del Operador
+
+Usa estos comandos para monitorear y gestionar el tutorial mientras se ejecuta. Para la referencia completa de comandos, consulta [Comandos de Administración del Tutorial](/admin/tutorial-commands).
+
+- `/master tutorial info` — muestra el número de paso actual, el conteo total de pasos y el estado del paso para todos los jugadores activos.
+- `/master tutorial status` — devuelve el estado general actual del tutorial.
+- `/master tutorial skip` — avanza el tutorial al siguiente paso inmediatamente. Úsalo si un minijuego de desbloqueo de hechizos se atasca y no puede completarse normalmente.
+- `/master tutorial spell pass` — marca el minijuego de desbloqueo de hechizos actual como completado para todos los jugadores a la vez. Úsalo como alternativa a `skip` cuando quieras desbloquear a todos sin saltar ningún contenido.
+- `/master tutorial spell unlock ;spell;` — desbloquea un hechizo específico para todos los jugadores inmediatamente. Reemplaza `;spell;` con el nombre del hechizo.
+- `/master tutorial varita` — entrega la varita manualmente a todos los jugadores. Úsalo si la distribución automática de varitas no se ejecutó para uno o más jugadores.
+- `/master tutorial resync player ;name;` — resincroniza manualmente a un jugador específico. Reemplaza `;name;` con el nombre de usuario del jugador.
+- `/master tutorial stop` — detiene el tutorial por completo.
+
+<Note>
+  Existe un comando `/master tutorial goto ;step;` que puede saltar directamente a cualquier paso por número. Sin embargo, esta es una **herramienta interna/de creador** destinada al desarrollo y la construcción de mapas. No la uses durante una ejecución de evento en vivo a menos que tengas la lista oficial de pasos exportada: saltar a un paso arbitrario sin conocer sus precondiciones exactas puede dejar a los jugadores en un estado indefinido.
+</Note>
+
+## Avanzar a MINI_EVENTS
+
+Una vez que todos los jugadores hayan completado la secuencia del tutorial, avanza a la siguiente fase:
+
+```bash
+/master estado MINI_EVENTS
+```

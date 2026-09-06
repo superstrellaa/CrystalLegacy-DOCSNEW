@@ -1,0 +1,43 @@
+---
+title: "/master bgm: Controla la música de fondo durante los eventos"
+sidebarTitle: "Control de BGM"
+description: "Usa /master bgm para detener la música de fondo actual o reproducir manualmente una pista específica por nombre para todos los jugadores conectados durante un evento de Crystal Legacy."
+---
+
+Crystal Legacy utiliza listas de reproducción de música totalmente personalizadas, adaptadas a cada fase del evento, que se inician y transicionan automáticamente a medida que el evento avanza. Los comandos `/master bgm` te permiten tomar el control manual de la reproducción de música en cualquier momento, ya sea que necesites cortar la música inmediatamente o activar una pista específica fuera del flujo automatizado normal.
+
+## Detener la música
+
+Detiene inmediatamente la música que se está reproduciendo para todos los jugadores conectados.
+
+**Sintaxis:**
+
+```bash
+/master bgm stop
+```
+
+## Reproducir una pista específica
+
+Reproduce cualquier pista de la biblioteca musical del evento por nombre. Esto inicia la reproducción para todos los jugadores conectados inmediatamente.
+
+**Sintaxis:**
+
+```bash
+/master bgm play ;song;
+```
+
+Reemplaza `;song;` con el nombre de la pista que quieres reproducir.
+
+**Ejemplo:**
+
+```bash
+/master bgm play combat_theme
+```
+
+<Note>
+  Cada fase automatizada del evento activa su propia lista de reproducción de música cuando comienza: **TUTORIAL**, **MINI_EVENTS** y **PVP** inician su música respectiva automáticamente. Los estados **DEV** y **WAITING_PLAYERS** no activan música del evento. Cualquier comando `/master bgm` manual anulará la lista de reproducción automatizada actualmente activa.
+</Note>
+
+<Tip>
+  Los jugadores controlan su propio volumen de música a través del control deslizante **Opciones → Música y sonidos → Música** de Minecraft vanilla. Si un jugador reporta que no escucha la música, pídele que revise ese control deslizante primero.
+</Tip>

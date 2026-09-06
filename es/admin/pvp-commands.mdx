@@ -1,0 +1,50 @@
+---
+title: "/master pvp: Gestiona las partidas PVP y el torneo"
+sidebarTitle: "Comandos PVP"
+description: "Usa los subcomandos de /master pvp para iniciar partidas, verificar el estado de combate, activar los créditos finales, y detener el torneo PVP durante un evento de Crystal Legacy."
+---
+
+El grupo de comandos `/master pvp` da a los operadores control sobre el torneo PVP de eliminación directa durante la fase PVP. Usa estos comandos para iniciar partidas individuales, verificar el estado de combate, activar la secuencia de créditos finales, o detener el torneo si algo sale mal.
+
+## Subcomandos
+
+| Comando | Descripción |
+| --- | --- |
+| `/master pvp creditos` | Inicia los créditos finales: centra las cámaras en la pantalla del bracket, oculta el HUD, reproduce la música de créditos. |
+| `/master pvp start ;playerA; ;playerB;` | Activa el combate PVP entre exactamente estos dos jugadores (no los teletransporta). |
+| `/master pvp status` | Devuelve el estado actual del combate PVP: si dos jugadores tienen PVP activado actualmente. |
+| `/master pvp stop` | Detiene tanto el torneo como el combate PVP. También afecta el estado del torneo. |
+
+## Ejemplos
+
+```bash
+# Verifica si el PVP está activo actualmente entre jugadores
+/master pvp status
+
+# Activa manualmente el PVP entre dos jugadores específicos
+/master pvp start Steve Alex
+
+# Activa la secuencia de créditos al final del evento
+/master pvp creditos
+
+# Detén el torneo (úsalo con precaución)
+/master pvp stop
+```
+
+## Activación de PVP
+
+<Note>
+  Por diseño, los jugadores no pueden dañarse entre sí en ningún lugar del evento a menos que el servidor lo haya activado automáticamente para una partida del torneo, o un operador haya usado `/master pvp start`. Esto previene combates accidentales fuera de las partidas programadas.
+</Note>
+
+## Detener el Torneo
+
+<Warning>
+  `/master pvp stop` detiene intencionalmente también el torneo. No está pensado para usarse durante una ejecución normal del evento. Úsalo solo si necesitas abortar la fase PVP por completo, ya que interrumpirá el bracket y no se puede deshacer sin restablecer el estado del torneo.
+</Warning>
+
+## Comandos de Depuración
+
+<Warning>
+  `torneodebug`, `torneokill`, y `torneokillall` son comandos internos de depuración solo para uso del creador. Tienen comportamiento no documentado y no deben usarse en eventos de producción. Ejecutarlos durante un evento en vivo puede producir efectos secundarios irreversibles en el estado del torneo.
+</Warning>

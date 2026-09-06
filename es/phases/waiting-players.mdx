@@ -1,0 +1,52 @@
+---
+title: "WAITING_PLAYERS: Estado de Sala de Espera para 30 Jugadores"
+sidebarTitle: "Esperando Jugadores"
+description: "El estado WAITING_PLAYERS muestra una pantalla de espera a todos los jugadores conectados y silencia automáticamente el chat de voz hasta que el operador avanza al Tutorial."
+---
+
+El estado `WAITING_PLAYERS` es la primera fase que experimentan los jugadores después de que el servidor abre sus puertas. Cada jugador que se conecta ve una pantalla de espera dedicada que indica que el evento aún no ha comenzado. Esta fase es intencionalmente silenciosa: el chat de voz se silencia automáticamente en todo el servidor para que los jugadores no se hablen encima en la pantalla de la sala. Tu trabajo durante esta fase es simplemente confirmar que los 30 jugadores se han unido antes de avanzar.
+
+## Entrar a WAITING_PLAYERS
+
+Cambia el servidor a la sala de espera con:
+
+```bash
+/master estado WAITING_PLAYERS
+```
+
+## Experiencia del Jugador
+
+Cuando un jugador se conecta durante este estado, se le muestra inmediatamente la pantalla de espera de jugadores. No pueden interactuar con el evento, lanzar hechizos ni escuchar a otros jugadores a través del chat de voz. La pantalla persiste hasta que avances a la siguiente fase.
+
+## Comportamiento del Chat de Voz
+
+Crystal Legacy gestiona automáticamente el permiso `voicechat.speak` durante esta fase:
+
+- **Al entrar a WAITING_PLAYERS**: el chat de voz se desactiva para todos los jugadores conectados. Ningún jugador puede hablar ni escuchar a otros a través de Simple Voice Chat.
+- **Al salir de WAITING_PLAYERS**: el chat de voz se reactiva automáticamente para todos los jugadores cuando el servidor cambia a `TUTORIAL`. No necesitas restaurar los permisos manualmente.
+
+## Gestionar la Pantalla de Espera por Jugador
+
+Puedes mostrar u ocultar la pantalla de espera para jugadores individuales o grupos sin cambiar el estado global:
+
+```bash
+/master pantalla esperando mostrar ;player(s);
+```
+
+```bash
+/master pantalla esperando ocultar ;player(s);
+```
+
+Reemplaza `;player(s);` con un nombre de jugador o una lista de nombres separados por comas.
+
+## Avanzar a TUTORIAL
+
+Una vez que los 30 jugadores estén conectados y estés listo para comenzar, avanza a la siguiente fase:
+
+```bash
+/master estado TUTORIAL
+```
+
+<Tip>
+  Antes de avanzar, confirma visualmente que los 30 jugadores aparecen en la lista del servidor. La pantalla de espera permanece visible para los jugadores hasta que ejecutes `/master estado TUTORIAL`, así que tienes todo el tiempo que necesites para verificar el roster.
+</Tip>

@@ -1,0 +1,58 @@
+---
+title: "/master data clear: Restablece el estado del evento y los datos del cliente"
+sidebarTitle: "/master data clear"
+description: "Usa /master data clear para borrar los datos del evento en memoria y restablecer el estado del cliente. Afecta sistemas específicos: bracket, parkour, pvp, timer, tutorial y más."
+---
+
+El comando `/master data clear` es tu herramienta principal de recuperación cuando algo sale mal durante un evento o cuando necesitas restablecer un sistema específico antes de volver a ejecutar una fase. Borra los datos del evento en memoria en el servidor y envía un paquete de restablecimiento a todos los clientes conectados, devolviendo su interfaz y estado a los valores predeterminados. Este comando **no** toca ningún registro persistente de la base de datos: todo lo que afecta vive solo en memoria durante la sesión actual.
+
+<Note>
+  Todos los subcomandos de `/master data clear` operan únicamente sobre el estado en memoria. Ninguna variante de este comando modifica, crea o elimina registros persistentes de la base de datos.
+</Note>
+
+## Comando raíz
+
+Ejecutar el comando raíz sin subcomando (o con `all`) realiza un restablecimiento completo en todos los sistemas:
+
+```bash
+/master data clear
+```
+
+Esto es equivalente a:
+
+```bash
+/master data clear all
+```
+
+Úsalo como opción nuclear cuando necesites borrar todo y comenzar de nuevo sin reiniciar el servidor.
+
+## Subcomandos
+
+| Subcomando | Descripción |
+| --- | --- |
+| `all` | Borra todos los datos del evento en memoria y restablece todos los clientes. Idéntico a ejecutar el comando raíz sin argumento. |
+| `bracket` | Borra solo la imagen del bracket de PVP generada proceduralmente. Úsalo si necesitas regenerar la visualización del bracket sin afectar otro estado de PVP. |
+| `client` | Envía el paquete de restablecimiento del cliente a todos los jugadores sin borrar ningún dato del lado del servidor. Útil para corregir desincronización de la interfaz del cliente. |
+| `client dialogo` | Elimina inmediatamente cualquier diálogo o superposición de diálogo que se esté mostrando actualmente en todos los clientes. |
+| `client pvp` | Borra todos los datos relacionados con PVP únicamente del lado del cliente. El estado de PVP del lado del servidor permanece intacto. |
+| `client spectators` | Elimina el estado de espectador de los jugadores que fueron eliminados durante la final de PVP. |
+| `parkour` | Borra todos los datos dinámicos de parkour, incluido el progreso de checkpoints y las banderas de finalización. |
+| `pvp` | Borra el estado de PVP tanto del lado del cliente como del servidor en una sola operación. |
+| `timer` | Detiene el temporizador de cuenta regresiva actualmente en ejecución y borra su estado. |
+| `torneo` | Borra el estado del bracket del torneo de PVP en el servidor. **No recomendado para uso normal en eventos.** |
+| `tutorial` | Borra todo el estado y progreso del tutorial para todos los jugadores. |
+| `voicechat` | Restablece los permisos de chat de voz al estado predeterminado, permitiendo que todos los jugadores hablen libremente. |
+
+<Warning>
+  Evita usar `torneo` durante un evento en vivo a menos que comprendas completamente las consecuencias. Borrar el estado del bracket del torneo durante un evento descartará todos los resultados de las partidas y la progresión, y no hay forma de restaurarlos automáticamente.
+</Warning>
+
+## Ejemplos
+
+```bash
+/master data clear parkour
+/master data clear timer
+/master data clear client dialogo
+/master data clear pvp
+/master data clear voicechat
+```

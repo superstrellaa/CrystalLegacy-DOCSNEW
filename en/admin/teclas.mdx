@@ -1,0 +1,50 @@
+---
+title: "/master teclas: Block and Unblock Restricted Player Keys"
+sidebarTitle: "Teclas"
+description: "Use /master teclas to block or unblock the default restricted keys (chat, inventory, and item drop) for specific players or selectors during the event."
+---
+
+The `/master teclas` command lets you override the default key-blocking behavior for individual players or groups during the event. By default, every registered non-OP player has their **chat**, **inventory**, and **item-drop** keys blocked for the entire duration of the event, preventing accidental or unauthorized input. Use this command whenever you need to grant or revoke that access on the fly without restarting or reconfiguring the event.
+
+<Note>
+  OP players are never subject to key-blocking, regardless of what this command specifies. Key restrictions only apply to registered non-OP players.
+</Note>
+
+## Syntax
+
+Use `bloquear` to restrict keys and `desbloquear` to restore them for the target player(s).
+
+```bash
+/master teclas bloquear ;player(s);
+/master teclas desbloquear ;player(s);
+```
+
+Replace `;player(s);` with one of the accepted selectors described below.
+
+## Accepted Player Selectors
+
+| Selector | Target |
+| --- | --- |
+| `@a` | All players currently on the server |
+| `@e` | All entities (including players) |
+| `Steve` | A specific player by name |
+
+## Examples
+
+Block keys for every player at once — useful when transitioning into a controlled phase:
+
+```bash
+/master teclas bloquear @a
+```
+
+Restore keys for a specific player by name:
+
+```bash
+/master teclas desbloquear Steve
+```
+
+Restore keys for all entities:
+
+```bash
+/master teclas desbloquear @e
+```

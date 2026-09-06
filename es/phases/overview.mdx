@@ -1,0 +1,61 @@
+---
+title: "Fases del Evento Crystal Legacy: Guía de Visión General Completa"
+sidebarTitle: "Visión General"
+description: "Crystal Legacy funciona a través de cinco estados globales: DEV, WAITING_PLAYERS, TUTORIAL, MINI_EVENTS y PVP, cada uno controlando lo que los jugadores ven y hacen."
+---
+
+Crystal Legacy es un mod de eventos basado en estados. El servidor avanza a través de cinco fases globales distintas en secuencia, y cada fase controla exactamente lo que los jugadores ven en sus HUDs, qué mecánicas están activas y qué interacciones están permitidas. Avanzas a través de las fases manualmente usando el comando maestro: nada cambia automáticamente sin la intervención de un operador.
+
+## Orden de las Fases
+
+Avanza a través de los estados en el siguiente orden usando `/master estado <state>`:
+
+```text
+DEV → WAITING_PLAYERS → TUTORIAL → MINI_EVENTS → PVP
+```
+
+## Referencia de Fases
+
+| State | Propósito |
+| --- | --- |
+| DEV | Estado de reposo/predeterminado al iniciar el servidor. Ninguna fase de evento activa. |
+| WAITING_PLAYERS | Pantalla de sala de espera. Los jugadores esperan hasta que se conecten los 30. |
+| TUTORIAL | Secuencia de tutorial automatizada que enseña los 4 hechizos. |
+| MINI_EVENTS | Minijuego de parkour con puntos de control y temporizador de 10 minutos. |
+| PVP | Torneo de eliminación directa, termina con créditos finales. |
+
+## Cambiar el Estado Activo
+
+Usa el siguiente comando para cambiar entre fases:
+
+```bash
+/master estado ;state;
+```
+
+Reemplaza `;state;` con uno de los cinco nombres de estado listados arriba (por ejemplo, `WAITING_PLAYERS`, `TUTORIAL`, etc.).
+
+<Note>
+  Si un jugador se une en medio de cualquier fase, el servidor detecta automáticamente la conexión tardía y sincroniza la interfaz correcta, los paquetes y el estado para ese jugador. No necesitas intervenir manualmente para las conexiones tardías estándar.
+</Note>
+
+## Páginas de Fases
+
+Explora la página dedicada a cada fase para encontrar comandos de operador, comportamiento visible para los jugadores y consejos para ejecutar cada segmento del evento sin problemas.
+
+<CardGroup cols={2}>
+  <Card title="WAITING_PLAYERS" icon="hourglass-start" href="/phases/waiting-players">
+    Pantalla de sala de espera mostrada a todos los jugadores conectados mientras esperas al roster completo de 30 personas.
+  </Card>
+
+  <Card title="TUTORIAL" icon="book-open" href="/phases/tutorial">
+    Secuencia automatizada y scripteada que enseña a cada jugador los cuatro hechizos de Crystal Legacy.
+  </Card>
+
+  <Card title="MINI_EVENTS" icon="flag-checkered" href="/phases/mini-events">
+    Minijuego de parkour con una cuenta regresiva de 10 minutos y un sistema de puntos de control.
+  </Card>
+
+  <Card title="PVP" icon="swords" href="/phases/pvp">
+    Torneo de eliminación directa que culmina en una secuencia de créditos finales.
+  </Card>
+</CardGroup>

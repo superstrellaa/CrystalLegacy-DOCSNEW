@@ -1,0 +1,35 @@
+---
+title: "/master minievento parkour: Administra el Minijuego de Parkour"
+sidebarTitle: "Comandos de Parkour"
+description: "Usa los subcomandos de /master minievento parkour para reiniciar, detener o limpiar datos de parkour durante la fase MINI_EVENTS de un evento de Crystal Legacy."
+---
+
+El grupo de comandos `/master minievento parkour` te permite controlar el mini-evento de parkour durante la fase `MINI_EVENTS`. Usa estos comandos para recuperarte de un mal estado, eliminar datos residuales o cerrar el minijuego por completo sin afectar el flujo general del evento.
+
+## Sintaxis
+
+```bash
+/master minievento parkour ;subcommand;
+```
+
+## Subcomandos
+
+| Subcomando | Descripción |
+| --- | --- |
+| `clear` | Limpia todos los datos dinámicos de parkour. Igual que `/master data clear parkour`. |
+| `reset` | Reinicia el minijuego de parkour a su estado inicial. |
+| `stop` | Detiene el minijuego de parkour por completo. |
+
+## Ejemplos
+
+```bash
+/master minievento parkour reset
+/master minievento parkour stop
+/master minievento parkour clear
+```
+
+## Recuperar un Parkour Atascado
+
+<Tip>
+  `reset` es el comando más común: úsalo si el parkour entra en un mal estado y necesitas reiniciarlo sin cambiar el estado general del evento. Devuelve el minijuego a sus condiciones iniciales mientras deja intacta toda la lógica de la fase `MINI_EVENTS`.
+</Tip>

@@ -12,85 +12,6 @@
     "dark": "/images/crystal_legacy-icon.png"
   },
   "navigation": {
-    "tabs": [
-      {
-        "tab": "Documentation",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "introduction",
-              "server-setup",
-              "client-setup",
-              "becoming-an-operator"
-            ]
-          },
-          {
-            "group": "Gameplay",
-            "pages": [
-              "gameplay/spells",
-              "gameplay/wand",
-              "gameplay/movement",
-              "gameplay/music"
-            ]
-          },
-          {
-            "group": "Event Phases",
-            "pages": [
-              "phases/overview",
-              "phases/waiting-players",
-              "phases/tutorial",
-              "phases/mini-events",
-              "phases/pvp"
-            ]
-          },
-          {
-            "group": "Entities & Decorations",
-            "pages": [
-              "entities/overview"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Admin Reference",
-        "groups": [
-          {
-            "group": "Command Overview",
-            "pages": [
-              "admin/overview",
-              "admin/estado",
-              "admin/data-clear"
-            ]
-          },
-          {
-            "group": "Player Management",
-            "pages": [
-              "admin/teclas",
-              "admin/hechizo",
-              "admin/voicechat",
-              "admin/warp"
-            ]
-          },
-          {
-            "group": "Screens & UI",
-            "pages": [
-              "admin/pantalla",
-              "admin/timer",
-              "admin/bgm"
-            ]
-          },
-          {
-            "group": "Phase Commands",
-            "pages": [
-              "admin/tutorial-commands",
-              "admin/minievento-parkour",
-              "admin/pvp-commands"
-            ]
-          }
-        ]
-      }
-    ],
     "global": {
       "tabs": [
         {
@@ -99,7 +20,174 @@
           "href": "https://www.lolame.studio/shop"
         }
       ]
-    }
+    },
+    "languages": [
+      {
+        "language": "en",
+        "default": true,
+        "tabs": [
+          {
+            "tab": "Documentation",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "en/introduction",
+                  "en/server-setup",
+                  "en/client-setup",
+                  "en/becoming-an-operator"
+                ]
+              },
+              {
+                "group": "Gameplay",
+                "pages": [
+                  "en/gameplay/spells",
+                  "en/gameplay/wand",
+                  "en/gameplay/movement",
+                  "en/gameplay/music"
+                ]
+              },
+              {
+                "group": "Event Phases",
+                "pages": [
+                  "en/phases/overview",
+                  "en/phases/waiting-players",
+                  "en/phases/tutorial",
+                  "en/phases/mini-events",
+                  "en/phases/pvp"
+                ]
+              },
+              {
+                "group": "Entities & Decorations",
+                "pages": [
+                  "en/entities/overview"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Admin Reference",
+            "groups": [
+              {
+                "group": "Command Overview",
+                "pages": [
+                  "en/admin/overview",
+                  "en/admin/estado",
+                  "en/admin/data-clear"
+                ]
+              },
+              {
+                "group": "Player Management",
+                "pages": [
+                  "en/admin/teclas",
+                  "en/admin/hechizo",
+                  "en/admin/voicechat",
+                  "en/admin/warp"
+                ]
+              },
+              {
+                "group": "Screens & UI",
+                "pages": [
+                  "en/admin/pantalla",
+                  "en/admin/timer",
+                  "en/admin/bgm"
+                ]
+              },
+              {
+                "group": "Phase Commands",
+                "pages": [
+                  "en/admin/tutorial-commands",
+                  "en/admin/minievento-parkour",
+                  "en/admin/pvp-commands"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "es",
+        "tabs": [
+          {
+            "tab": "Documentación",
+            "groups": [
+              {
+                "group": "Primeros Pasos",
+                "pages": [
+                  "es/introduction",
+                  "es/server-setup",
+                  "es/client-setup",
+                  "es/becoming-an-operator"
+                ]
+              },
+              {
+                "group": "Jugabilidad",
+                "pages": [
+                  "es/gameplay/spells",
+                  "es/gameplay/wand",
+                  "es/gameplay/movement",
+                  "es/gameplay/music"
+                ]
+              },
+              {
+                "group": "Fases del Evento",
+                "pages": [
+                  "es/phases/overview",
+                  "es/phases/waiting-players",
+                  "es/phases/tutorial",
+                  "es/phases/mini-events",
+                  "es/phases/pvp"
+                ]
+              },
+              {
+                "group": "Entidades y Decoraciones",
+                "pages": [
+                  "es/entities/overview"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Referencia de Administrador",
+            "groups": [
+              {
+                "group": "Resumen de Comandos",
+                "pages": [
+                  "es/admin/overview",
+                  "es/admin/estado",
+                  "es/admin/data-clear"
+                ]
+              },
+              {
+                "group": "Gestión de Jugadores",
+                "pages": [
+                  "es/admin/teclas",
+                  "es/admin/hechizo",
+                  "es/admin/voicechat",
+                  "es/admin/warp"
+                ]
+              },
+              {
+                "group": "Pantallas e Interfaz",
+                "pages": [
+                  "es/admin/pantalla",
+                  "es/admin/timer",
+                  "es/admin/bgm"
+                ]
+              },
+              {
+                "group": "Comandos de Fase",
+                "pages": [
+                  "es/admin/tutorial-commands",
+                  "es/admin/minievento-parkour",
+                  "es/admin/pvp-commands"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   "navbar": {
     "primary": {

@@ -1,0 +1,49 @@
+---
+title: "/master estado: Transiciona el estado del evento de Crystal Legacy"
+sidebarTitle: "/master estado"
+description: "Usa /master estado para transicionar Crystal Legacy entre sus cinco estados globales: DEV, WAITING_PLAYERS, TUTORIAL, MINI_EVENTS y PVP."
+---
+
+El comando `/master estado` es la palanca principal para avanzar a Crystal Legacy a través de su ciclo de vida de eventos. Cada estado activa un conjunto distinto de sistemas, desde la pantalla de lobby y las reglas de chat de voz hasta el bracket del torneo de PVP. Transicionar a un nuevo estado no deshace automáticamente el anterior, así que sigue el orden previsto y usa los subcomandos de `/master data clear` si necesitas revertir sistemas específicos.
+
+<Note>
+  Transicionar estados es efectivamente irreversible durante una ejecución normal de evento. Si necesitas restablecer una fase específica, por ejemplo, borrar el progreso de parkour o limpiar el estado del tutorial, usa el subcomando `/master data clear` apropiado en lugar de volver a ingresar a un estado anterior a ciegas.
+</Note>
+
+## Sintaxis
+
+```bash
+/master estado ;state;
+```
+
+Reemplaza `;state;` con uno de los cinco identificadores de estado válidos listados en la tabla de abajo.
+
+## Estados válidos
+
+| Estado | Descripción |
+| --- | --- |
+| `DEV` | Estado inactivo. Predeterminado al iniciar el servidor. Ninguna fase del evento está activa. Úsalo entre pruebas o cuando el servidor esté en espera. |
+| `WAITING_PLAYERS` | Se muestra la pantalla de lobby a todos los jugadores mientras esperan a que comience el evento. |
+| `TUTORIAL` | Activa la secuencia de tutorial automatizada para todos los participantes. |
+| `MINI_EVENTS` | Inicia la fase de mini-eventos, incluido el minijuego de parkour con seguimiento de checkpoints. |
+| `PVP` | Activa el bracket del torneo de eliminación directa e inicia la fase de PVP. |
+
+## Orden previsto
+
+Ejecuta los estados en la siguiente secuencia para un evento estándar:
+
+```text
+DEV → WAITING_PLAYERS → TUTORIAL → MINI_EVENTS → PVP
+```
+
+Comienza en `DEV` mientras preparas el servidor. Pasa a `WAITING_PLAYERS` cuando estés listo para admitir participantes al lobby. Avanza a `TUTORIAL` cuando los 30 jugadores se hayan unido, luego a `MINI_EVENTS` para la fase de parkour, y finalmente a `PVP` para ejecutar el torneo.
+
+## Ejemplos
+
+```bash
+/master estado WAITING_PLAYERS
+/master estado TUTORIAL
+/master estado MINI_EVENTS
+/master estado PVP
+/master estado DEV
+```

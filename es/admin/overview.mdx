@@ -1,0 +1,73 @@
+---
+title: "Comandos de Admin /master de Crystal Legacy: Referencia Completa"
+sidebarTitle: "Resumen"
+description: "Todos los comandos de admin de Crystal Legacy están bajo /master y requieren OP. Esta página cubre cómo empezar y qué controla cada categoría de comandos."
+---
+
+Toda acción de administrador en Crystal Legacy fluye a través de un único comando raíz: `/master`. Desde transicionar fases del evento hasta reiniciar el estado del cliente, gestionar las teclas de los jugadores, controlar la música de fondo y activar el bracket de PVP: todo lo que necesitas para ejecutar un evento de 30 jugadores está al alcance desde este único espacio de nombres. Todos los subcomandos requieren OP; los jugadores sin OP recibirán un error de permisos o no verán respuesta alguna.
+
+<Warning>
+  Todos los comandos `/master` requieren privilegios de operador del servidor (OP). Intentar ejecutar cualquier subcomando sin OP fallará en silencio o devolverá un error de permisos. Confirma siempre tu estado de OP antes de ejecutar comandos durante un evento en vivo.
+</Warning>
+
+## Cómo Empezar
+
+Antes de avanzar entre las fases del evento, usa `/master info` en cualquier momento para obtener una lectura completa de depuración del estado actual del evento. Esto incluye la fase activa, jugadores registrados, temporizadores, estado del chat de voz y más. Haz de esta tu primera parada siempre que algo parezca fuera de lugar.
+
+```bash
+/master info
+```
+
+## Categorías de Comandos
+
+Usa las tarjetas de abajo para navegar a la documentación de cada grupo de subcomandos `/master`.
+
+<CardGroup cols={2}>
+  <Card title="Estado" icon="flag" href="/admin/estado">
+    Transiciona el evento entre sus cinco fases globales usando `/master estado`.
+  </Card>
+
+  <Card title="Datos y Reinicio" icon="trash" href="/admin/data-clear">
+    Borra los datos del evento en memoria y reinicia el estado del cliente con `/master data clear`.
+  </Card>
+
+  <Card title="Teclas de Jugador" icon="key" href="/admin/teclas">
+    Gestiona las asignaciones de teclas y el inventario por jugador con `/master teclas`.
+  </Card>
+
+  <Card title="Hechizos" icon="wand-magic-sparkles" href="/admin/hechizo">
+    Configura y activa las mecánicas de hechizos mediante `/master hechizo` y `/master minijuego`.
+  </Card>
+
+  <Card title="Chat de Voz" icon="microphone" href="/admin/voicechat">
+    Controla los permisos y el estado de silencio de Simple Voice Chat con `/master voicechat`.
+  </Card>
+
+  <Card title="Warp" icon="location-dot" href="/admin/warp">
+    Teletransporta jugadores a puntos de warp registrados usando `/master warp`.
+  </Card>
+
+  <Card title="Pantallas" icon="display" href="/admin/pantalla">
+    Envía pantallas de superposición personalizadas a los jugadores con `/master pantalla`.
+  </Card>
+
+  <Card title="Temporizador" icon="clock" href="/admin/timer">
+    Inicia, detiene y configura la cuenta regresiva en pantalla mediante `/master timer`.
+  </Card>
+
+  <Card title="Música" icon="music" href="/admin/bgm">
+    Reproduce y detiene pistas de música de fondo para todos los jugadores con `/master bgm`.
+  </Card>
+
+  <Card title="Tutorial" icon="book-open" href="/admin/tutorial-commands">
+    Activa y gestiona la secuencia automatizada del tutorial mediante `/master tutorial`.
+  </Card>
+
+  <Card title="Parkour" icon="person-running" href="/admin/minievento-parkour">
+    Controla el minijuego de parkour y sus checkpoints con `/master minievento parkour`.
+  </Card>
+
+  <Card title="PVP" icon="swords" href="/admin/pvp-commands">
+    Gestiona el bracket de torneo de eliminación simple usando `/master pvp`.
+  </Card>
+</CardGroup>

@@ -1,0 +1,40 @@
+---
+title: "The Crystal Legacy Wand (Varita): Usage and Aim Mode"
+sidebarTitle: "Wand"
+description: "The Crystal Legacy Varita (crystal_legacy:varita) is required for three spells. Learn aim mode, melee attack, and the operator per-player aim toggle."
+---
+
+The wand — known in-game as the **Varita** — is one of the most important items in Crystal Legacy. Its item ID is `crystal_legacy:varita`. Three of the four spells (**Bola de Fuego**, **Levioso**, and **Hachazo**) require you to be holding the Varita when you cast them. The only spell that works without it is **Dash**, which you can use regardless of what is in your hand. Understanding how the wand behaves — and how its aim mode works — is essential for getting the most out of your spellcasting.
+
+<Note>
+  The wand is given automatically to all players during the Tutorial, including players who join mid-tutorial. If you need to give it manually, operators can run `/master tutorial varita`.
+</Note>
+
+## Wand Behaviors
+
+### Right-Click — Aim Mode
+
+Right-clicking with the Varita activates **zoom/aim mode**. While in aim mode your view narrows and your crosshair becomes more precise, allowing you to accurately target other players. This is especially important for spells like **Levioso**, where correct aim is required for the effect to apply to your intended target. Release or right-click again to exit aim mode.
+
+### Left-Click — Melee Attack
+
+Left-clicking with the Varita performs a basic **melee-style attack**. This gives you a short-range combat option that does not consume any spell charges or trigger a spell cooldown, useful when you need to act quickly up close without spending a spell.
+
+## Operator Aim Mode Toggle
+
+Operators can enable or disable aim mode on a per-player basis using the following commands:
+
+```bash
+/master apuntado deshabilitar ;player(s);
+/master apuntado habilitar ;player(s);
+```
+
+Replace `;player(s);` with a player selector or name. The following selectors are accepted:
+
+| Selector | Targets |
+| --- | --- |
+| `@a` | All players |
+| `@e` | All entities |
+| `playerName` | A specific named player |
+
+This is useful for troubleshooting aim issues or adjusting the experience for individual participants during the event.

@@ -1,0 +1,92 @@
+---
+title: "PVP: Torneo de Eliminación Directa y Créditos"
+sidebarTitle: "PVP"
+description: "El estado PVP construye un bracket de eliminación directa con todos los jugadores registrados, ejecuta rondas con descansos de 30 segundos y cierra con una secuencia de créditos."
+---
+
+El estado `PVP` es el clímax del evento Crystal Legacy. Cuando entras a esta fase, el servidor construye automáticamente un bracket de torneo de eliminación directa con todos los jugadores registrados actualmente y lo muestra a todos en la pantalla del bracket. Los combates avanzan ronda por ronda: octavos de final, cuartos de final, semifinales y la final, con descansos de 30 segundos entre combates. La fase cierra con una secuencia cinematográfica de créditos finales una vez que se corona un ganador.
+
+## Entrar a PVP
+
+Cambia el servidor a la fase de PVP con:
+
+```bash
+/master estado PVP
+```
+
+## Registro de Jugadores
+
+Los jugadores se registran automáticamente para el torneo al unirse, siempre que no sean operadores del servidor (OP). No necesitas registrar jugadores manualmente. Si un jugador se conecta después de que se haya entrado a este estado, sigue la misma regla: los jugadores no-OP se registran automáticamente.
+
+## El Bracket del Torneo
+
+El servidor genera una imagen procedural del bracket de eliminación directa y la muestra a todos los jugadores. El torneo avanza a través de las siguientes rondas:
+
+| Ronda | Jugadores Restantes |
+| --- | --- |
+| Octavos de final | 16 |
+| Cuartos de final | 8 |
+| Semifinales | 4 |
+| Final | 2 |
+
+<Note>
+  La imagen del bracket se genera de forma procedural. Si el número de jugadores registrados no es exactamente 30, la imagen puede mostrar pequeños glitches visuales (slots desalineados, celdas vacías o nombres superpuestos). Esta es solo una limitación de renderizado cosmética: la **lógica subyacente de los combates siempre resuelve correctamente** sin importar la cantidad de jugadores. Los combates se desarrollarán adecuadamente incluso si la imagen del bracket se ve mal.
+</Note>
+
+## Entre Combates: Descansos de 30 Segundos
+
+Después de que cada combate concluye, comienza un descanso de 30 segundos antes del siguiente combate. Durante este descanso:
+
+- Los jugadores no pueden causar daño entre sí ni con hechizos (consulta [Activación de Combate](#combat-activation) abajo para más detalles).
+- Cada jugador puede **alternar su cámara** para mirar o dejar de mirar la pantalla del bracket presionando **Y**. Esta tecla se puede reconfigurar en **Opciones → Controles → Atajos de Teclado → Crystal Legacy | Teclas**.
+
+## Activación de Combate
+
+Por diseño, los jugadores **no pueden** dañarse entre sí y los hechizos no causan daño por defecto, incluso dentro de la fase PVP. El daño se activa solo de dos maneras:
+
+1. **Automáticamente por el servidor** cuando comienza un combate de torneo para los dos jugadores competidores.
+2. **Manualmente por un operador** usando el comando de inicio de PVP para dos jugadores específicos.
+
+Esto previene daño accidental durante descansos, espectadores o cualquier período fuera de un combate activo.
+
+## Comandos de Administrador
+
+Usa estos comandos para gestionar el torneo. Para la referencia completa de administración de PVP, consulta [Comandos de Administración de PVP](/admin/pvp-commands).
+
+```bash
+/master pvp start ;playerA; ;playerB;
+```
+
+Activa manualmente el combate PVP entre dos jugadores específicos. Reemplaza `;playerA;` y `;playerB;` con sus nombres de usuario.
+
+```bash
+/master pvp status
+```
+
+Devuelve el estado actual de combate PVP: muestra qué jugadores tienen el combate activado actualmente.
+
+```bash
+/master pvp stop
+```
+
+Detiene tanto el combate PVP activo como el torneo.
+
+<Warning>
+  `/master pvp stop` afecta **tanto** el estado de combate **como** el estado más amplio del torneo. Ejecutar este comando en medio del evento detendrá la progresión del bracket por completo. No se espera que este comando se use durante una ejecución normal del evento: resérvalo solo para emergencias o pruebas.
+</Warning>
+
+## Terminando el Evento: Créditos
+
+Una vez que el combate final concluye y se ha declarado un ganador, inicia la secuencia de créditos finales:
+
+```bash
+/master pvp creditos
+```
+
+Este comando:
+
+- Centra la cámara de cada jugador en la pantalla del bracket.
+- Oculta el HUD para todos los jugadores.
+- Inicia la música de créditos y el texto de créditos desplazándose.
+
+La secuencia de créditos se ejecuta hasta completarse automáticamente. No se requieren más comandos de operador después de activarla.

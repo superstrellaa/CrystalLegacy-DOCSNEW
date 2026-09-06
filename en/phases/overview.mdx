@@ -1,0 +1,61 @@
+---
+title: "Crystal Legacy Event Phases: Complete Overview Guide"
+sidebarTitle: "Overview"
+description: "Crystal Legacy runs through five global states — DEV, WAITING_PLAYERS, TUTORIAL, MINI_EVENTS, and PVP — each controlling what players see and do."
+---
+
+Crystal Legacy is a state-driven event mod. The server moves through five distinct global phases in sequence, and each phase controls exactly what players see on their HUDs, which mechanics are active, and what interactions are permitted. You advance through phases manually using the master command — nothing transitions automatically without operator input.
+
+## Phase Order
+
+Advance through states in the following order using `/master estado <state>`:
+
+```text
+DEV → WAITING_PLAYERS → TUTORIAL → MINI_EVENTS → PVP
+```
+
+## Phase Reference
+
+| State | Purpose |
+| --- | --- |
+| DEV | Idle/default state on server boot. No event phase active. |
+| WAITING_PLAYERS | Lobby screen. Players wait until all 30 are connected. |
+| TUTORIAL | Automated tutorial sequence teaching the 4 spells. |
+| MINI_EVENTS | Parkour minigame with checkpoints and 10-min timer. |
+| PVP | Single-elimination tournament bracket, ends with credits. |
+
+## Changing the Active State
+
+Use the following command to transition between phases:
+
+```bash
+/master estado ;state;
+```
+
+Replace `;state;` with one of the five state names listed above (e.g. `WAITING_PLAYERS`, `TUTORIAL`, etc.).
+
+<Note>
+  If a player joins mid-state during any phase, the server automatically detects the late join and syncs the correct UI, packets, and state to that player. You do not need to manually intervene for standard late joins.
+</Note>
+
+## Phase Pages
+
+Dive into the dedicated page for each phase to find operator commands, player-facing behavior, and tips for running each segment of the event smoothly.
+
+<CardGroup cols={2}>
+  <Card title="WAITING_PLAYERS" icon="hourglass-start" href="/phases/waiting-players">
+    Lobby screen shown to all connected players while you wait for the full 30-person roster.
+  </Card>
+
+  <Card title="TUTORIAL" icon="book-open" href="/phases/tutorial">
+    Automated scripted sequence that teaches every player the four Crystal Legacy spells.
+  </Card>
+
+  <Card title="MINI_EVENTS" icon="flag-checkered" href="/phases/mini-events">
+    Parkour minigame with a 10-minute countdown and a checkpoint system.
+  </Card>
+
+  <Card title="PVP" icon="swords" href="/phases/pvp">
+    Single-elimination tournament bracket culminating in an end-credits sequence.
+  </Card>
+</CardGroup>

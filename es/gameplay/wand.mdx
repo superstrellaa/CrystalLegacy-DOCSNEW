@@ -1,0 +1,40 @@
+---
+title: "La Varita de Crystal Legacy (Varita): Uso y modo de puntería"
+sidebarTitle: "Varita"
+description: "La Varita de Crystal Legacy (crystal_legacy:varita) es requerida para tres hechizos. Aprende el modo de puntería, el ataque cuerpo a cuerpo y el comando de operador para activar la puntería por jugador."
+---
+
+La varita, conocida en el juego como la **Varita**, es uno de los objetos más importantes de Crystal Legacy. Su ID de objeto es `crystal_legacy:varita`. Tres de los cuatro hechizos (**Bola de Fuego**, **Levioso** y **Hachazo**) requieren que estés sosteniendo la Varita cuando los lanzas. El único hechizo que funciona sin ella es **Dash**, que puedes usar sin importar lo que tengas en la mano. Entender cómo se comporta la varita, y cómo funciona su modo de puntería, es esencial para sacarle el máximo provecho a tu lanzamiento de hechizos.
+
+<Note>
+  La varita se otorga automáticamente a todos los jugadores durante el Tutorial, incluyendo a quienes se unan a mitad del tutorial. Si necesitas dársela manualmente, los operadores pueden ejecutar `/master tutorial varita`.
+</Note>
+
+## Comportamientos de la varita
+
+### Clic derecho: Modo de puntería
+
+Hacer clic derecho con la Varita activa el **modo de zoom/puntería**. Mientras estás en modo de puntería, tu campo de visión se estrecha y tu mira se vuelve más precisa, permitiéndote apuntar con precisión a otros jugadores. Esto es especialmente importante para hechizos como **Levioso**, donde se requiere una puntería correcta para que el efecto se aplique a tu objetivo deseado. Suelta el botón o haz clic derecho de nuevo para salir del modo de puntería.
+
+### Clic izquierdo: Ataque cuerpo a cuerpo
+
+Hacer clic izquierdo con la Varita realiza un **ataque básico de estilo cuerpo a cuerpo**. Esto te da una opción de combate de corto alcance que no consume cargas de hechizo ni activa un enfriamiento de hechizo, útil cuando necesitas actuar rápidamente de cerca sin gastar un hechizo.
+
+## Comando de operador para activar el modo de puntería
+
+Los operadores pueden habilitar o deshabilitar el modo de puntería por jugador usando los siguientes comandos:
+
+```bash
+/master apuntado deshabilitar ;player(s);
+/master apuntado habilitar ;player(s);
+```
+
+Reemplaza `;player(s);` con un selector de jugador o un nombre. Se aceptan los siguientes selectores:
+
+| Selector | Objetivos |
+| --- | --- |
+| `@a` | Todos los jugadores |
+| `@e` | Todas las entidades |
+| `playerName` | Un jugador específico por nombre |
+
+Esto es útil para solucionar problemas de puntería o ajustar la experiencia para participantes individuales durante el evento.

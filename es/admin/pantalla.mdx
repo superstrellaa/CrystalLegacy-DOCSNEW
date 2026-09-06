@@ -1,0 +1,90 @@
+---
+title: "/master pantalla: Controla las pantallas y diálogos de los jugadores"
+sidebarTitle: "Control de Pantalla"
+description: "Usa /master pantalla para mostrar pantallas de carga, iniciar secuencias de diálogo, y mostrar u ocultar la pantalla de espera para jugadores o selectores específicos."
+---
+
+El grupo de comandos `/master pantalla` te da control directo sobre las pantallas de la interfaz que se muestran a los jugadores durante el evento. Usa estos subcomandos para mostrar transiciones de carga, activar secuencias de diálogo programadas desde la biblioteca de diálogos del evento, y gestionar manualmente la pantalla de espera, apuntando a jugadores individuales o a selectores completos según sea necesario.
+
+## Pantalla de Carga
+
+La pantalla de carga bloquea la vista del jugador durante una transición o cambio de escena. Especificas cuánto tiempo permanece visible usando una duración basada en ticks.
+
+**Sintaxis:**
+
+```bash
+/master pantalla cargando mostrar ;player(s); ;time;
+```
+
+| Parámetro | Descripción |
+| --- | --- |
+| `;player(s);` | Un nombre de jugador, `@a`, o `@e`. |
+| `;time;` | Duración en ticks (20 ticks = 1 segundo). |
+
+**Ejemplo:**
+
+```bash
+/master pantalla cargando mostrar @a 100
+```
+
+Esto muestra la pantalla de carga a todos los jugadores durante 5 segundos (100 ticks).
+
+<Note>
+  El tiempo siempre se especifica en **ticks**, no en segundos. Divide tus segundos deseados entre 20 para obtener el valor correcto. Por ejemplo, 3 segundos = 60 ticks, 10 segundos = 200 ticks.
+</Note>
+
+## Diálogo
+
+El subcomando de diálogo inicia una secuencia de diálogo programada desde la biblioteca de diálogos del evento para uno o más jugadores.
+
+**Sintaxis:**
+
+```bash
+/master pantalla dialogos ;dialogue; ;player(s);
+```
+
+| Parámetro | Descripción |
+| --- | --- |
+| `;dialogue;` | El ID de la secuencia de diálogo tal como se define en la biblioteca de diálogos del evento. |
+| `;player(s);` | Un nombre de jugador, `@a`, o `@e`. |
+
+**Ejemplo:**
+
+```bash
+/master pantalla dialogos intro @a
+```
+
+Esto activa la secuencia de diálogo `intro` para todos los jugadores conectados simultáneamente.
+
+Para borrar inmediatamente cualquier diálogo activo de todos los clientes, ejecuta:
+
+```bash
+/master data clear client dialogo
+```
+
+## Pantalla de Espera
+
+La pantalla de espera muestra una superposición de "esperando jugadores" a los jugadores especificados. Puedes mostrarla u ocultarla manualmente usando los siguientes comandos.
+
+**Sintaxis:**
+
+```bash
+/master pantalla esperando mostrar ;player(s);
+/master pantalla esperando ocultar ;player(s);
+```
+
+**Ejemplo: muestra la pantalla de espera a todos los jugadores:**
+
+```bash
+/master pantalla esperando mostrar @a
+```
+
+**Ejemplo: oculta la pantalla de espera para un jugador específico:**
+
+```bash
+/master pantalla esperando ocultar Steve
+```
+
+<Tip>
+  La pantalla de espera se muestra **automáticamente** para todos los jugadores cuando el evento entra en el estado `WAITING_PLAYERS`. Usa estos comandos solo cuando necesites anular manualmente ese comportamiento. Por ejemplo, para ocultar la pantalla antes de tiempo para un jugador específico o para volver a mostrarla fuera de la transición de estado normal.
+</Tip>

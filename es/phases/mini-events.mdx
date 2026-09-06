@@ -1,0 +1,68 @@
+---
+title: "MINI_EVENTS: Minijuego de Parkour con Puntos de Control y Temporizador"
+sidebarTitle: "Mini Eventos"
+description: "El estado MINI_EVENTS teletransporta a todos los jugadores al mapa de parkour, inicia una cuenta regresiva de 10 minutos y termina cuando cada jugador cruza el punto de control final."
+---
+
+El estado `MINI_EVENTS` es el calentamiento competitivo entre el tutorial y el bracket principal de PVP. Cuando entras a esta fase, el servidor teletransporta a todos los jugadores al mapa de parkour e inicia una cuenta regresiva de 10 minutos. Los jugadores compiten a través del recorrido, guardando progreso en los puntos de control a lo largo del camino. El minijuego está diseñado para darles a los jugadores la oportunidad de practicar el movimiento con hechizos antes de que comience el combate.
+
+## Mini-Eventos Disponibles Actualmente
+
+El único mini-evento disponible en esta versión de Crystal Legacy es el minijuego de **Parkour**. Se pueden agregar tipos adicionales de mini-eventos en futuras versiones.
+
+## Entrar a MINI_EVENTS
+
+Cambia el servidor a la fase de mini-eventos con:
+
+```bash
+/master estado MINI_EVENTS
+```
+
+Todos los jugadores registrados son teletransportados al mapa de parkour automáticamente tan pronto como cambia el estado.
+
+## Cómo Funciona el Minijuego de Parkour
+
+<Steps>
+  <Step title="Teletransporte">
+    Todos los jugadores son teletransportados instantáneamente al inicio del recorrido de parkour cuando comienza la fase.
+  </Step>
+  <Step title="Cuenta Regresiva de 10 Minutos">
+    Un temporizador global de 10 minutos comienza. La cuenta regresiva es visible para todos los jugadores en su HUD.
+  </Step>
+  <Step title="Puntos de Control">
+    A medida que los jugadores avanzan por el recorrido, alcanzan puntos de control que guardan su posición. Si un jugador cae o muere, reaparece en su último punto de control en lugar de al inicio.
+  </Step>
+  <Step title="Condición de Finalización">
+    El minijuego termina cuando cada jugador registrado alcanza el punto de control final **o** la cuenta regresiva de 10 minutos llega a cero, lo que ocurra primero.
+  </Step>
+</Steps>
+
+## Comandos de Control de Administrador
+
+Usa estos comandos para gestionar el parkour durante el evento. Para la referencia completa de administración de parkour, consulta [Comandos de Administración de Parkour](/admin/minievento-parkour).
+
+```bash
+/master minievento parkour reset
+```
+
+Reinicia todo el parkour: reposiciona a todos los jugadores al inicio y borra el progreso de los puntos de control.
+
+```bash
+/master minievento parkour stop
+```
+
+Detiene el minijuego de parkour inmediatamente y remueve a los jugadores del recorrido.
+
+```bash
+/master minievento parkour clear
+```
+
+Borra todos los datos dinámicos de parkour del servidor (estados de puntos de control, posiciones de jugadores, banderas de ejecución). Úsalo para tener un estado limpio antes de reiniciar.
+
+## Avanzar a PVP
+
+Una vez que el minijuego de parkour haya concluido, avanza a la fase de torneo:
+
+```bash
+/master estado PVP
+```

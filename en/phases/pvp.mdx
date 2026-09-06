@@ -1,0 +1,92 @@
+---
+title: "PVP: Single-Elimination Tournament Bracket and Credits"
+sidebarTitle: "PVP"
+description: "The PVP state builds a single-elimination bracket from all registered players, runs rounds with 30-second breaks, and closes with a credits sequence."
+---
+
+The `PVP` state is the climax of the Crystal Legacy event. When you enter this phase, the server automatically builds a single-elimination tournament bracket from all currently registered players and displays it to everyone on the bracket screen. Matches proceed round by round — round of 16, quarterfinals, semifinals, and the final — with 30-second breaks between bouts. The phase closes with a cinematic end-credits sequence once a winner is crowned.
+
+## Entering PVP
+
+Transition the server into the PVP phase with:
+
+```bash
+/master estado PVP
+```
+
+## Player Registration
+
+Players auto-register for the tournament on join, as long as they are not server operators (OP). You do not need to register players manually. If a player connects after this state is entered, they follow the same rule — non-OP players register automatically.
+
+## The Tournament Bracket
+
+The server generates a procedural single-elimination bracket image and displays it to all players. The tournament runs through the following rounds:
+
+| Round | Players Remaining |
+| --- | --- |
+| Round of 16 | 16 |
+| Quarterfinals | 8 |
+| Semifinals | 4 |
+| Final | 2 |
+
+<Note>
+  The bracket image is generated procedurally. If the registered player count is not exactly 30, the image may display minor visual glitches (misaligned slots, empty cells, or overlapping names). This is a cosmetic rendering limitation only — the **underlying match logic always resolves correctly** regardless of player count. The matches will play out properly even if the bracket graphic looks off.
+</Note>
+
+## Between Matches: 30-Second Breaks
+
+After each match concludes, a 30-second break begins before the next bout. During this break:
+
+- Players cannot deal damage to each other or with spells (see [Combat Activation](#combat-activation) below for details).
+- Every player can **toggle their camera** to look at or look away from the bracket screen by pressing **Y**. This key is rebindable under **Options → Controls → Key Binds → Crystal Legacy | Teclas**.
+
+## Combat Activation
+
+By design, players **cannot** damage each other and spells deal no damage by default — even inside the PVP phase. Damage is enabled only in two ways:
+
+1. **Automatically by the server** when a tournament match begins for the two competing players.
+2. **Manually by an operator** using the PVP start command for two specific players.
+
+This prevents accidental damage during breaks, spectating, or any period outside an active match.
+
+## Admin Commands
+
+Use these commands to manage the tournament. For the full PVP admin reference, see [PVP Admin Commands](/admin/pvp-commands).
+
+```bash
+/master pvp start ;playerA; ;playerB;
+```
+
+Manually enables PVP combat between two specific players. Replace `;playerA;` and `;playerB;` with their usernames.
+
+```bash
+/master pvp status
+```
+
+Returns the current PVP combat status — shows which players currently have combat enabled.
+
+```bash
+/master pvp stop
+```
+
+Stops both active PVP combat and the tournament.
+
+<Warning>
+  `/master pvp stop` affects **both** combat state **and** the broader tournament state. Running this command mid-event will halt the bracket progression entirely. This command is not expected to be used during a normal event run — reserve it for emergencies or testing only.
+</Warning>
+
+## Ending the Event: Credits
+
+Once the final match concludes and a winner has been declared, start the end-credits sequence:
+
+```bash
+/master pvp creditos
+```
+
+This command:
+
+- Centers every player's camera on the bracket screen.
+- Hides the HUD for all players.
+- Starts the credits music and scrolling credits text.
+
+The credits sequence runs to completion automatically. No further operator commands are required after triggering it.

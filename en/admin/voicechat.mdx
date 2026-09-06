@@ -1,0 +1,43 @@
+---
+title: "/master voicechat: Toggle Voice Chat for All Players"
+sidebarTitle: "Voicechat"
+description: "Use /master voicechat to enable or disable the Simple Voice Chat speak permission for all players. Automatically disabled during WAITING_PLAYERS."
+---
+
+Crystal Legacy integrates with [Simple Voice Chat](https://modrinth.com/plugin/simple-voice-chat) and manages the `voicechat.speak` permission automatically based on the current event state. The `/master voicechat` command lets you manually override that permission for all players when you need explicit control over who can speak during the event.
+
+<Tip>
+  You generally don't need to use this command manually — the automatic behavior handles voice chat correctly for each event state. Reserve manual overrides for exceptional situations where the default logic doesn't meet your needs.
+</Tip>
+
+## Automatic Behavior
+
+Crystal Legacy adjusts voice chat automatically as the event moves through its states:
+
+| Event State | Voice Chat |
+| --- | --- |
+| `WAITING_PLAYERS` | Automatically set to `false` for everyone |
+| All other states | Enabled for all players |
+
+Voice chat is disabled during `WAITING_PLAYERS` so players don't talk over the waiting screen before the event begins.
+
+## Manual Override
+
+To manually enable or disable voice chat for **all** players — including OPs — run:
+
+```bash
+/master voicechat true
+/master voicechat false
+```
+
+This immediately applies the `voicechat.speak` permission change server-wide.
+
+## Resetting to Default
+
+To clear the manual override and return voice chat to its automatic state-driven behavior, run:
+
+```bash
+/master data clear voicechat
+```
+
+After clearing, Crystal Legacy resumes managing the `voicechat.speak` permission automatically based on the active event state.
